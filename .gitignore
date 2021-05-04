@@ -1,3 +1,17 @@
+# Eclipse metadata files that can be ignored  
+.classpath  
+.editorconfig  
+.factorypath  
+.gitattributes  
+#.project  
+.settings/  
+bin/  
+  
+target/  
+# maven project related ignore files and directories  
+.mvn/  
+target/  
+
 # Compiled class file
 *.class
 
@@ -11,7 +25,7 @@
 .mtj.tmp/
 
 # Package Files #
-*.jar
+#*.jar
 *.war
 *.nar
 *.ear
@@ -21,4 +35,3 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-/build/
