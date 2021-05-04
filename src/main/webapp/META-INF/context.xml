@@ -1,0 +1,8 @@
+
+<Context>
+    <Resource name="jdbc/pool_cnx"
+              driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+              type="javax.sql.DataSource"
+              url="jdbc:sqlserver://localhost;databasename=COMMERCE" username="sa"
+              password="P@$$w0rd" maxTotal="100" maxIdle="30" maxWaitMillis="10000" />
+</Context>
