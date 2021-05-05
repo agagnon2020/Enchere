@@ -13,12 +13,12 @@
             <p>ENI-Encheres </p>
         </div>
         <div>
-            <a href="/connexion">S'inscrire - Se connecter</a>
+            <a href="Enchere/connexion">S'inscrire - Se connecter</a>
         </div>
     </header>
     <h1>Liste des enchères</h1>
     <section>
-        <form class="filtre" action="/accueil" method="post">
+        <form class="filtre" action="Enchere/accueil" method="post">
         <div class="column">
             <div>
                 <p>Filtres :</p>
