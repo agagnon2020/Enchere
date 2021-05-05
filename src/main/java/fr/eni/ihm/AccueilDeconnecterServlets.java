@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Deconnexion
+ * Servlet implementation class AccueilDeconnecter
  */
-@WebServlet("/Deconnexion")
-public class Deconnexion extends HttpServlet {
+@WebServlet("/AccueilDeconnecter")
+public class AccueilDeconnecterServlets extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Deconnexion() {
+    public AccueilDeconnecterServlets() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,13 +27,7 @@ public class Deconnexion extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getSession().invalidate();
-		System.out.println("Je suis déconnecté !");
-		
-		
-			request.setAttribute("msgDeconnexion", "Vous êtes bien déconnecté !");
-			request.getRequestDispatcher("/WEB-INF/jsp/pageConnexion.jsp").forward(request,response);
-		
+		request.getRequestDispatcher("/WEB-INF/jsp/AccueilDeconnecter.jsp").forward(request,response);
 	}
 
 	/**

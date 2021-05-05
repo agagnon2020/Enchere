@@ -12,16 +12,16 @@ import fr.eni.bll.UserManager;
 import fr.eni.bo.Utilisateur;
 
 /**
- * Servlet implementation class SupprimerProfil
+ * Servlet implementation class Profil
  */
-@WebServlet("/SupprimerProfil")
-public class SupprimerProfil extends HttpServlet {
+@WebServlet("/Profil")
+public class ProfilServlets extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SupprimerProfil() {
+    public ProfilServlets() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,18 +30,19 @@ public class SupprimerProfil extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		HttpSession session = request.getSession();
-		Utilisateur utilisateur = (Utilisateur) session.getAttribute("utilisateur");
-		Integer clefPrimaire = utilisateur.getNo_utilisateur();
-		utilisateur.setNo_utilisateur(clefPrimaire);
+		// TODO Auto-generated method stub
+		HttpSession session=request.getSession();
+		Utilisateur u= (Utilisateur)session.getAttribute("utilisateur");
+		Integer id = u.getNo_utilisateur();
 		
 		UserManager mger = new UserManager();
-		//mger.supprimerProfil(utilisateur);
+		Utilisateur utilisateur  = mger.infosProfil(id);
 		
-		request.setAttribute("suppression", "Votre profil utilisateur à bien été supprimé de notre base de donnée. Créer un nouveau compte si vous souhaitez vous reconnecter.");
-		request.getRequestDispatcher("/WEB-INF/jsp/SupprimerProfil.jsp").forward(request,response);
-		}
+		session.setAttribute("utilisateur", utilisateur);
+		
+		
+		request.getRequestDispatcher("/WEB-INF/jsp/ProfilUtilisateur.jsp").forward(request,response);
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

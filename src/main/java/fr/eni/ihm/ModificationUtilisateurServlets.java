@@ -8,23 +8,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-//import fr.eni.bll.ArticleManager;
 import fr.eni.bll.UserManager;
 import fr.eni.bo.Utilisateur;
-//import fr.eni.javaee.enchere.bo.Article;
-//import fr.eni.javaee.enchere.bo.Users;
 
 /**
- * Servlet implementation class AnnonceVenteArticle
+ * Servlet implementation class ModificationUtilisateur
  */
-@WebServlet("/AnnonceVenteArticle")
-public class AnnonceVenteArticle extends HttpServlet {
+@WebServlet("/ModificationUtilisateur")
+public class ModificationUtilisateurServlets extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AnnonceVenteArticle() {
+    public ModificationUtilisateurServlets() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,7 +30,7 @@ public class AnnonceVenteArticle extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		// TODO Auto-generated method stub
 		HttpSession session=request.getSession();
 		Utilisateur u= (Utilisateur)session.getAttribute("utilisateur");
 		Integer id = u.getNo_utilisateur();
@@ -43,27 +40,32 @@ public class AnnonceVenteArticle extends HttpServlet {
 		
 		session.setAttribute("utilisateur", utilisateur);
 		
-		request.getRequestDispatcher("/WEB-INF/jsp/AnnonceVenteArticle.jsp").forward(request,response);
+		request.getRequestDispatcher("/WEB-INF/jsp/ModificationUtilisateur.jsp").forward(request,response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		//1 récupérer la clef primaire de l'utilisateur courant
 		HttpSession session = request.getSession();
-		/*Article article = (Article) session.getAttribute("article");*/		
-		session.getAttribute("utilisateur");
-		//int no_utilisateur= session.
+		Utilisateur utilisateurOld = (Utilisateur) session.getAttribute("utilisateur");
+		Integer clefPrimaire = utilisateurOld.getNo_utilisateur();
 		
-		//Article article = new Article();
+		//2 créer un nouvel utilisateur avec les nouvelles infos avec la clé primaire de l'ancien utilisateur
+		//Utilisateur utilisateurNew = new Utilisateur(request.getParameter("identifiant"), request.getParameter("nom"), request.getParameter("prenom"), request.getParameter("email"), request.getParameter("telephone"), request.getParameter("rue"), request.getParameter("code_postal"), request.getParameter("ville"), request.getParameter("mot_de_passe"), 100, false);
+		//utilisateurNew.setNo_utilisateur(clefPrimaire);
 		
-		//ArticleManager mger = new ArticleManager();
-		//mger.enregistrerArticle(article);
+		//3 sauvegarder la donnée
 		
-		 //request.setAttribute("enregistrementArticle", "Votre article a bien été enregistré !");
-		//response.sendRedirect("http://localhost:8080/Encheres/Accueil");
+		UserManager mger = new UserManager();
+		//mger.modifierProfil(utilisateurNew);
 		
+		
+			
+			response.sendRedirect("/Encheres/Accueil");
+			
+			
 	}
 
 }

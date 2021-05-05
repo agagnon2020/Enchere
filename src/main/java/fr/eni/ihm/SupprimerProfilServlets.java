@@ -8,19 +8,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import fr.eni.bll.UserManager;
 import fr.eni.bo.Utilisateur;
 
 /**
- * Servlet implementation class Accueil
+ * Servlet implementation class SupprimerProfil
  */
-@WebServlet("/Accueil")
-public class Accueil extends HttpServlet {
+@WebServlet("/SupprimerProfil")
+public class SupprimerProfilServlets extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Accueil() {
+    public SupprimerProfilServlets() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,25 +30,25 @@ public class Accueil extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
+		HttpSession session = request.getSession();
+		Utilisateur utilisateur = (Utilisateur) session.getAttribute("utilisateur");
+		Integer clefPrimaire = utilisateur.getNo_utilisateur();
+		utilisateur.setNo_utilisateur(clefPrimaire);
 		
-		HttpSession session=request.getSession();
-		Utilisateur u= (Utilisateur)session.getAttribute("utilisateur");
-		String message=u.getNom();
-		request.setAttribute("msgJSP", message);
-		request.getRequestDispatcher("/WEB-INF/jsp/accueil.jsp").forward(request,response);
+		UserManager mger = new UserManager();
+		//mger.supprimerProfil(utilisateur);
 		
-		
-		
-		
-	}
+		request.setAttribute("suppression", "Votre profil utilisateur à bien été supprimé de notre base de donnée. Créer un nouveau compte si vous souhaitez vous reconnecter.");
+		request.getRequestDispatcher("/WEB-INF/jsp/SupprimerProfil.jsp").forward(request,response);
+		}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		doGet(request, response);
 	}
 
 }
