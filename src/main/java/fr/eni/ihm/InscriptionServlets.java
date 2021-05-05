@@ -37,22 +37,33 @@ public class InscriptionServlets extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*String mot_de_passe = request.getParameter("mot_de_passe");
-		System.out.println(mot_de_passe);*/
 		
-		//Utilisateur utilisateur = new Utilisateur( request.getParameter("identifiant"), request.getParameter("nom"), request.getParameter("prenom"), request.getParameter("email"), request.getParameter("telephone"), request.getParameter("rue"), request.getParameter("code_postal"), request.getParameter("ville"), request.getParameter("mot_de_passe"), 100, false);
+		//Recupération des informations entrés dans le formulaire pour créer un utilisateur en bdd
+		
+		Utilisateur utilisateur = new Utilisateur( request.getParameter("pseudo"), 
+												request.getParameter("nom"), 
+												request.getParameter("prenom"), 
+												request.getParameter("email"), 
+												request.getParameter("telephone"), 
+												request.getParameter("rue"), 
+												request.getParameter("code_postal"), 
+												request.getParameter("ville"),  
+												request.getParameter("mot_de_passe"), 
+												100, 
+												false);
+		
 		
 		//Appeler la BLL pour inscrire l'utilisateur
 		UserManager mger = new UserManager();
-		//Integer id = mger.inscrire(utilisateur);
+		Integer id = mger.inscrire(utilisateur);
 		HttpSession session = request.getSession();
-		//session.setAttribute("idUtilisateur", id);
+		session.setAttribute("idUtilisateur", id);
 		
-		/*request.getRequestDispatcher("/WEB-INF/jsp/accueil.jsp").forward(request,response);*/
+		request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp").forward(request,response);
 	
 		
-			response.sendRedirect("/Encheres/accueil");
-			//session.setAttribute("utilisateur", utilisateur);
+			response.sendRedirect("/Enchere/accueil");
+			session.setAttribute("utilisateur", utilisateur);
 	
 		
 	}

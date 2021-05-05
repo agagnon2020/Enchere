@@ -34,15 +34,18 @@ public class UserManager {
 	
 	
 	 // Enregistrer le profil d'un utilisateur
-		public void inscrire(Utilisateur user){
+		public Integer inscrire(Utilisateur user){
 			
 			UserDAOJdbcImpl DAO = new UserDAOJdbcImpl();
+			Integer id = null;
 			try {
-				DAO.insert(user);
+				id = DAO.insert(user);
 			} catch (BusinessException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
+			return id;
 			
 		}
 		

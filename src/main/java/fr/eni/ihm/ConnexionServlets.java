@@ -32,25 +32,22 @@ public class ConnexionServlets extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// Afficher JSP
-		request.getRequestDispatcher("/WEB-INF/jsp/pageConnexion.jsp").forward(request,response);
-		
-
+		// Redirection sur la JSP
+		request.getRequestDispatcher("/WEB-INF/jsp/Connexion.jsp").forward(request,response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//Etape 1 : RÃ©cupÃ©ration des infos
+		//Etape 1 : Récupération des infos utilisateur
 		String identifiant = request.getParameter("identifiant");
 		
 		HttpSession session=request.getSession();
 		
-		//Users u= (Users)session.getAttribute("utilisateur");
-		//Integer id = u.getNo_utilisateur();
-		//session.setAttribute("no_utilisateur", id);
+		Utilisateur u= (Utilisateur)session.getAttribute("utilisateur");
+		Integer id = u.getNo_utilisateur();
+		session.setAttribute("no_utilisateur", id);
 		
 		System.out.println("Identifiant :"+ identifiant);
 		
@@ -66,13 +63,13 @@ public class ConnexionServlets extends HttpServlet {
 		if(utilisateur != null) {
 			//Soit l'utilisateur est connu et le mot de passe est correct
 			//Afficher la page d'accueil
-			response.sendRedirect("/Encheres/Accueil");
+			response.sendRedirect("/Enchere/accueil");
 			session.setAttribute("utilisateur", utilisateur);
 		}else {
 			//Soit l'utilisateur ou le mot de passe n'est pas correct
 			//On reste sur la meme page et on affiche un msg d'erreur
 			request.setAttribute("erreur", "Votre identifiant ou votre mot de passe est incorrect");
-			request.getRequestDispatcher("/WEB-INF/jsp/pageConnexion.jsp").forward(request,response);
+			request.getRequestDispatcher("/WEB-INF/jsp/Connexion.jsp").forward(request,response);
 			
 		}
 		

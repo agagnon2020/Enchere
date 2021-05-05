@@ -28,18 +28,18 @@ public class AccueilServlets extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// Accueil sur le site avec attribution d'une session utilisateur
 		HttpSession session=request.getSession();
 		Utilisateur u= (Utilisateur)session.getAttribute("utilisateur");
+		String message=u.getNom();
+		request.setAttribute("msgJSP", message);
 		request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp").forward(request,response);
-		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

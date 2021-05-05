@@ -20,7 +20,7 @@ public class UserDAOJdbcImpl implements UserDAO {
     private static final String SELECT_BY_EMAIL = "SELECT * FROM UTILISATEURS WHERE email=? AND mot_de_passe=?";
      
     @Override
-    public void insert(Utilisateur user) throws BusinessException {
+    public int insert(Utilisateur user) throws BusinessException {
         if (user == null) {
             BusinessException businessException = new BusinessException();
             businessException.ajouterErreur(CodesResultatDAL.INSERT_OBJET_NULL);
@@ -38,9 +38,9 @@ public class UserDAOJdbcImpl implements UserDAO {
                     pstmt.setString(2, user.getNom());
                     pstmt.setString(3, user.getPrenom());
                     pstmt.setString(4, user.getEmail());
-                    pstmt.setInt(5, user.getTelephone());
+                    pstmt.setString(5, user.getTelephone());
                     pstmt.setString(6, user.getRue());
-                    pstmt.setInt(7, user.getCode_postal());
+                    pstmt.setString(7, user.getCode_postal());
                     pstmt.setString(8, user.getVille());
                     pstmt.setString(9, user.getMot_de_passe());
                     pstmt.setInt(10, user.getCredit());
@@ -65,6 +65,7 @@ public class UserDAOJdbcImpl implements UserDAO {
             businessException.ajouterErreur(CodesResultatDAL.INSERT_OBJET_ECHEC);
             throw businessException;
         }
+        return user.getNo_utilisateur();
 
     }
 
@@ -94,9 +95,9 @@ public class UserDAOJdbcImpl implements UserDAO {
             	user.setPrenom(rs.getString("prenom"));
             	user.setNom(rs.getString("nom"));
             	user.setEmail(rs.getString("email"));
-            	user.setTelephone(rs.getInt("telephone"));
+            	user.setTelephone(rs.getString("telephone"));
             	user.setRue(rs.getString("rue"));
-            	user.setCode_postal(rs.getInt("code_postal"));
+            	user.setCode_postal(rs.getString("code_postal"));
             	user.setMot_de_passe(rs.getString("mot_de_passe"));
             	user.setCredit(rs.getInt("credit"));
             	user.setAdministrateur(rs.getBoolean("administrateur"));
@@ -125,9 +126,9 @@ public class UserDAOJdbcImpl implements UserDAO {
                 	user.setPrenom(rs.getString("prenom"));
                 	user.setNom(rs.getString("nom"));
                 	user.setEmail(rs.getString("email"));
-                	user.setTelephone(rs.getInt("telephone"));
+                	user.setTelephone(rs.getString("telephone"));
                 	user.setRue(rs.getString("rue"));
-                	user.setCode_postal(rs.getInt("code_postal"));
+                	user.setCode_postal(rs.getString("code_postal"));
                 	user.setMot_de_passe(rs.getString("mot_de_passe"));
                 	user.setCredit(rs.getInt("credit"));
                 	user.setAdministrateur(rs.getBoolean("administrateur"));
@@ -160,9 +161,9 @@ public class UserDAOJdbcImpl implements UserDAO {
                 	user.setPrenom(rs.getString("prenom"));
                 	user.setNom(rs.getString("nom"));
                 	user.setEmail(rs.getString("email"));
-                	user.setTelephone(rs.getInt("telephone"));
+                	user.setTelephone(rs.getString("telephone"));
                 	user.setRue(rs.getString("rue"));
-                	user.setCode_postal(rs.getInt("code_postal"));
+                	user.setCode_postal(rs.getString("code_postal"));
                 	user.setMot_de_passe(rs.getString("mot_de_passe"));
                 	user.setCredit(rs.getInt("credit"));
                 	user.setAdministrateur(rs.getBoolean("administrateur"));
@@ -199,9 +200,9 @@ public class UserDAOJdbcImpl implements UserDAO {
                     pstmt.setString(2, user.getNom());
                     pstmt.setString(3, user.getPrenom());
                     pstmt.setString(4, user.getEmail());
-                    pstmt.setInt(5, user.getTelephone());
+                    pstmt.setString(5, user.getTelephone());
                     pstmt.setString(6, user.getRue());
-                    pstmt.setInt(7, user.getCode_postal());
+                    pstmt.setString(7, user.getCode_postal());
                     pstmt.setString(8, user.getVille());
                     pstmt.setString(9, user.getMot_de_passe());
                     pstmt.setInt(10, user.getCredit());
@@ -239,9 +240,9 @@ public class UserDAOJdbcImpl implements UserDAO {
                 	user.setPrenom(rs.getString("prenom"));
                 	user.setNom(rs.getString("nom"));
                 	user.setEmail(rs.getString("email"));
-                	user.setTelephone(rs.getInt("telephone"));
+                	user.setTelephone(rs.getString("telephone"));
                 	user.setRue(rs.getString("rue"));
-                	user.setCode_postal(rs.getInt("code_postal"));
+                	user.setCode_postal(rs.getString("code_postal"));
                 	user.setMot_de_passe(rs.getString("mot_de_passe"));
                 	user.setCredit(rs.getInt("credit"));
                 	user.setAdministrateur(rs.getBoolean("administrateur"));

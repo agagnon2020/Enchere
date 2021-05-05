@@ -19,19 +19,19 @@ public class DeconnexionServlets extends HttpServlet {
      */
     public DeconnexionServlets() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
+		//Deconnexion de l'utilisateur reconnu de la session active
 		request.getSession().invalidate();
 		System.out.println("Je suis déconnecté !");
 		
-			request.setAttribute("msgDeconnexion", "Vous Ãªtes bien déconnecté !");
-			request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp").forward(request,response);
+		request.setAttribute("msgDeconnexion", "Vous êtes bien déconnecté !");
+		request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp").forward(request,response);
 		
 	}
 
@@ -39,7 +39,6 @@ public class DeconnexionServlets extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

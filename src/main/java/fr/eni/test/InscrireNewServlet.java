@@ -30,9 +30,9 @@ public class InscrireNewServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		Utilisateur user1 = new Utilisateur("JeanChristopheDu06", "Jean", "Christophe", "jean.christophe@gmail.com", 06, "Rue jean", 44000, "Nantes", "mdpmdp", 100, false);
-		Utilisateur user2 = new Utilisateur("JeanCharleDu35", "Jean", "Charle", "jean.charle@gmail.com", 06, "Rue jean", 35000, "Rennes", "mdpmdp2", 100, true);
-		Utilisateur user3 = new Utilisateur("MarieChristine", "Marie", "Christine", "mpariechristine@gmail.com", 06, "Avenue de la vie", 01010, "La Lune", "mdpmdp3", 100, false);
+		Utilisateur user1 = new Utilisateur("JeanChristopheDu06", "Jean", "Christophe", "jean.christophe@gmail.com", "06", "Rue jean", "44000", "Nantes", "mdpmdp", 100, false);
+		Utilisateur user2 = new Utilisateur("JeanCharleDu35", "Jean", "Charle", "jean.charle@gmail.com", "06", "Rue jean", "35000", "Rennes", "mdpmdp2", 100, true);
+		Utilisateur user3 = new Utilisateur("MarieChristine", "Marie", "Christine", "mpariechristine@gmail.com", "06", "Avenue de la vie", "01010", "La Lune", "mdpmdp3", 100, false);
 		UserManager manager = new UserManager();
 
 		
