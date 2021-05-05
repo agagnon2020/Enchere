@@ -19,6 +19,7 @@ public class UserManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+        
         if( utilisateur == null ) {
 	        try {
 				utilisateur = DAO.selectByMail(pseudoParam, mdpParam);
