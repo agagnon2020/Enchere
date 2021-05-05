@@ -31,11 +31,11 @@ public class AccueilServlets extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		HttpSession session=request.getSession();
-		Utilisateur u= (Utilisateur)session.getAttribute("utilisateur");
-		String message=u.getNom();
-		request.setAttribute("msgJSP", message);
-		request.getRequestDispatcher("/WEB-INF/jsp/accueil.jsp").forward(request,response);
+		//HttpSession session=request.getSession();
+		//Utilisateur u= (Utilisateur)session.getAttribute("utilisateur");
+		//String message=u.getNom();
+		//request.setAttribute("msgJSP", message);
+		request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp").forward(request,response);
 		
 		
 		
