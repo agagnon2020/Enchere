@@ -2,11 +2,11 @@ package fr.eni.bo;
 
 public class Utilisateur {
 		//déclarations des variables
-	private int no_utilisateur, telephone, credit, code_postal;
-	private String pseudo, nom, prenom, email, rue, ville, mot_de_passe;
+	private int no_utilisateur, credit, code_postal;
+	private String pseudo, nom, prenom, email, rue, ville, mot_de_passe, telephone;
 	private Boolean administrateur;
 	
-	public Utilisateur(String pseudoParam, String  nomParam, String prenomParam, String emailParam, int telParam,
+	public Utilisateur(String pseudoParam, String  nomParam, String prenomParam, String emailParam, String telParam,
 			String rueParam, int cpParam, String villeParam, String mdpParam, int creditParam, Boolean adminParam) {
 		this.pseudo = pseudoParam;
 		this.nom = nomParam;
@@ -21,7 +21,7 @@ public class Utilisateur {
 		this.administrateur = adminParam;
 	}
 	
-	public Utilisateur(int numUser, String pseudoParam, String  nomParam, String prenomParam, String emailParam, int telParam,
+	public Utilisateur(int numUser, String pseudoParam, String  nomParam, String prenomParam, String emailParam, String telParam,
 			String rueParam, int cpParam, String villeParam, String mdpParam, int creditParam, Boolean adminParam) {
 		this.pseudo = pseudoParam;
 		this.nom = nomParam;
@@ -49,11 +49,11 @@ public class Utilisateur {
 		this.no_utilisateur = no_utilisateur;
 	}
 
-	public int getTelephone() {
+	public String getTelephone() {
 		return telephone;
 	}
 
-	public void setTelephone(int telephone) {
+	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
 
