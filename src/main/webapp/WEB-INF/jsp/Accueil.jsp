@@ -27,7 +27,7 @@
                     <option value="informatique">Informatique</option>
                     <option value="ameublement">Ameublement</option>
                     <option value="vetement">Vêtement</option>
-                    <option value="sport">Sport & Loisirs</option>
+                    <option value="sport">Sport et Loisirs</option>
                 </select>
             </div>
             <div>
