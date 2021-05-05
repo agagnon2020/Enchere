@@ -18,22 +18,27 @@
     </header>
     <h1>Liste des enchères</h1>
     <section>
-        <form action="/Accueil" method="post">
+        <form class="filtre" action="/Accueil" method="post">
+        <div class="column">
             <div>
-                <p>Filtres : </p>
-                <input type="text" name="recherche" placeholder="Le nom de l'article contient">
+                <p>Filtres :</p>
+            <input type="text" name="recherche" placeholder="Le nom de l'article contient">
+            </div>
+            <div>
                 <label for="categorie">Catégorie</label>
-                <select id="categorie" name="Toutes">
-                    <option value="informatique">Informatique</option>
-                    <option value="ameublement">Ameublement</option>
-                    <option value="vetement">Vêtement</option>
-                    <option value="sport">Sport et Loisirs</option>
-                </select>
+            <select id="categorie" name="Categories">
+            	<option value="all">Toutes</option>
+                <option value="informatique">Informatique</option>
+                <option value="ameublement">Ameublement</option>
+                <option value="vetement">Vêtement</option>
+                <option value="sport">Sport & Loisirs</option>
+            </select>
             </div>
-            <div>
-                <input type="submit" value="Rechercher">
-            </div>
-        </form>
+        </div>
+        <div class="column">
+            <input type="submit" value="Rechercher">
+        </div>
+    </form>
     </section>
 </body>
 </html>

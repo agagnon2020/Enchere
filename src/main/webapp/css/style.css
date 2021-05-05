@@ -1,11 +1,34 @@
-header{
-    column-count: 2;
+header, .filtre{
+    overflow: hidden;
+    display: flex;
+    margin-right: 1em;
 }
 
+header a,
+header p{
+    margin: 0;
+}
+
+header div:nth-child(2n),
 header a{
-    margin: 16px 0;
+    float: right;
+}
+header div,
+section .column{
+    width: 50%;
+    margin: 1em 0;
 }
 
-header div:nth-child(2n){
-    float: right;
+h1{
+    text-align: center;
+}
+
+.filtre input[type="submit"] {
+    width: 25em;
+    height: 5em;
+}
+
+
+.filtre .column div{
+    margin: 1em 0;
 }
