@@ -1,7 +1,7 @@
-package test;
+package fr.eni.test;
 
-import bll.UserManager;
-import bo.Utilisateur;
+import fr.eni.bll.UserManager;
+import fr.eni.bo.Utilisateur;
 
 public class Tests {
 
