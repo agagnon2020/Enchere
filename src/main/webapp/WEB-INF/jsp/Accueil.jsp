@@ -10,7 +10,7 @@
 <body>
     <header>
         <div>
-            <p>ENI-Encheres</p>
+            <p>ENI-Encheres </p>
         </div>
         <div>
             <a href="/UsersConnexion">S'inscrire - Se connecter</a>
