@@ -1,0 +1,11 @@
+header{
+    column-count: 2;
+}
+
+header a{
+    margin: 16px 0;
+}
+
+header div:nth-child(2n){
+    float: right;
+}
