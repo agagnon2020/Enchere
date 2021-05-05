@@ -26,9 +26,19 @@ h1{
 .filtre input[type="submit"] {
     width: 25em;
     height: 5em;
+    margin: 3em 0;
 }
 
 
 .filtre .column div{
     margin: 1em 0;
+}
+
+.filtre input[type="text"]{
+	width:50%;
+}
+
+.filtre #categorie {
+    width: 39.5%;
+    text-align: center;
 }
