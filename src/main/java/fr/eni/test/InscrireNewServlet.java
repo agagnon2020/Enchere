@@ -36,15 +36,18 @@ public class InscrireNewServlet extends HttpServlet {
 		UserManager manager = new UserManager();
 
 		manager.inscrire(user1);
-		manager.inscrire(user2);
-		manager.inscrire(user3);
-		System.out.println(manager.infosProfil(user1.getNo_utilisateur()));
-		System.out.println(manager.infosProfil(user2.getNo_utilisateur()));
-		System.out.println(manager.infosProfil(user3.getNo_utilisateur()));
-		manager.supprimerProfil(user3.getNo_utilisateur());
-		user1.setPseudo("MichelDu33");
-		manager.modifierProfil(user1);
-		System.out.println(manager.infosProfil(user1.getNo_utilisateur()));
+		//manager.inscrire(user2);
+		//manager.inscrire(user3);
+		//System.out.println(manager.infosProfil(user1.getNo_utilisateur()));
+		//System.out.println(manager.infosProfil(user2.getNo_utilisateur()));
+		//System.out.println(manager.infosProfil(user3.getNo_utilisateur()));
+		//manager.supprimerProfil(user1.getNo_utilisateur());
+		//user1.setPseudo("MichelDu33");
+		//System.out.println(manager.infosProfil(user1.getNo_utilisateur()));
+		//manager.modifierProfil(user1);
+		//System.out.println(manager.infosProfil(user1.getNo_utilisateur()));
+		
+		//System.out.println(manager.authentifier("MichelDu33", "mdpmdp"));
 	}
 
 	/**

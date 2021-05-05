@@ -12,11 +12,11 @@ import fr.eni.bo.Utilisateur;
 public class UserDAOJdbcImpl implements UserDAO {
 
     private static final String SELECT_ALL = "SELECT * FROM UTILISATEURS";
-    private static final String SELECT_BY_ID = "SELECT UTILISATEURS WHERE no_utilisateur=?";
+    private static final String SELECT_BY_ID = "SELECT * FROM UTILISATEURS WHERE no_utilisateur=?";
     private static final String INSERT_USER = "insert into UTILISATEURS(pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur) values(?,?,?,?,?,?,?,?,?,?,?);";
     private static final String DELETE_USER = "delete from UTILISATEURS where no_utilisateur=?";
-    private static final String SELECT_BY_AUTH = "SELECT UTILISATEURS WHERE pseudo=? AND mot_de_passe=?";
-    private static final String UPDATE_USER = "update UTILISATEURS set coche=?, pseudo=?, nom=?, prenom=?, email=?, telephone=?, rue=?, code_postal=?, ville=?, mot_de_passe=?, credit=?, administrateur=? where no_utilisateur=?";
+    private static final String SELECT_BY_AUTH = "SELECT * FROM UTILISATEURS WHERE pseudo=? AND mot_de_passe=?";
+    private static final String UPDATE_USER = "update UTILISATEURS set pseudo=?, nom=?, prenom=?, email=?, telephone=?, rue=?, code_postal=?, ville=?, mot_de_passe=?, credit=?, administrateur=? where no_utilisateur=?";
 
     @Override
     public void insert(Utilisateur user) throws BusinessException {
@@ -40,9 +40,10 @@ public class UserDAOJdbcImpl implements UserDAO {
                     pstmt.setInt(5, user.getTelephone());
                     pstmt.setString(6, user.getRue());
                     pstmt.setInt(7, user.getCode_postal());
-                    pstmt.setString(8, user.getMot_de_passe());
-                    pstmt.setInt(9, user.getCredit());
-                    pstmt.setBoolean(10, user.getAdministrateur());
+                    pstmt.setString(8, user.getVille());
+                    pstmt.setString(9, user.getMot_de_passe());
+                    pstmt.setInt(10, user.getCredit());
+                    pstmt.setBoolean(11, user.getAdministrateur());
                     pstmt.executeUpdate();
                     rs = pstmt.getGeneratedKeys();
                     if (rs.next()) {
@@ -191,8 +192,8 @@ public class UserDAOJdbcImpl implements UserDAO {
                 cnx.setAutoCommit(false);
                 PreparedStatement pstmt;
                 ResultSet rs;
-                if (user.getNo_utilisateur() == 0) {
-                    pstmt = cnx.prepareStatement(UPDATE_USER, PreparedStatement.RETURN_GENERATED_KEYS);
+                if (user.getNo_utilisateur() != 0) {
+                    pstmt = cnx.prepareStatement(UPDATE_USER);
                     pstmt.setString(1, user.getPseudo());
                     pstmt.setString(2, user.getNom());
                     pstmt.setString(3, user.getPrenom());
@@ -200,9 +201,11 @@ public class UserDAOJdbcImpl implements UserDAO {
                     pstmt.setInt(5, user.getTelephone());
                     pstmt.setString(6, user.getRue());
                     pstmt.setInt(7, user.getCode_postal());
-                    pstmt.setString(8, user.getMot_de_passe());
-                    pstmt.setInt(9, user.getCredit());
-                    pstmt.setBoolean(10, user.getAdministrateur());
+                    pstmt.setString(8, user.getVille());
+                    pstmt.setString(9, user.getMot_de_passe());
+                    pstmt.setInt(10, user.getCredit());
+                    pstmt.setBoolean(11, user.getAdministrateur());
+                    pstmt.setInt(12, user.getNo_utilisateur());
                     pstmt.executeUpdate();
                     pstmt.close();
                 }
