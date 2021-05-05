@@ -25,7 +25,7 @@
             <input type="text" name="recherche" placeholder="Le nom de l'article contient">
             </div>
             <div>
-                <label for="categorie">Catégorie</label>
+                <label for="categorie">Catégorie : </label>
             <select id="categorie" name="Categories">
             	<option value="all">Toutes</option>
                 <option value="informatique">Informatique</option>
