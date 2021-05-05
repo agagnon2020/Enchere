@@ -16,14 +16,14 @@ import fr.eni.bo.Utilisateur;
 /**
  * Servlet implementation class UsersConnexion
  */
-@WebServlet("/UsersConnexion")
-public class UtilisateursConnexionServlets extends HttpServlet {
+@WebServlet("/connexion")
+public class ConnexionServlets extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UtilisateursConnexionServlets() {
+    public ConnexionServlets() {
         super();
         // TODO Auto-generated constructor stub
     }

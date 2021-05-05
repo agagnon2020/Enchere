@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Deconnexion
  */
-@WebServlet("/Deconnexion")
+@WebServlet("/deconnexion")
 public class DeconnexionServlets extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -28,11 +28,10 @@ public class DeconnexionServlets extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.getSession().invalidate();
-		System.out.println("Je suis dÃ©connectÃ© !");
+		System.out.println("Je suis déconnecté !");
 		
-		
-			request.setAttribute("msgDeconnexion", "Vous Ãªtes bien dÃ©connectÃ© !");
-			request.getRequestDispatcher("/WEB-INF/jsp/pageConnexion.jsp").forward(request,response);
+			request.setAttribute("msgDeconnexion", "Vous Ãªtes bien déconnecté !");
+			request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp").forward(request,response);
 		
 	}
 

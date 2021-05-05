@@ -13,7 +13,7 @@ import fr.eni.bo.Utilisateur;
 /**
  * Servlet implementation class Accueil
  */
-@WebServlet("/Accueil")
+@WebServlet("/accueil")
 public class AccueilServlets extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -22,23 +22,16 @@ public class AccueilServlets extends HttpServlet {
      */
     public AccueilServlets() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
-		//HttpSession session=request.getSession();
-		//Utilisateur u= (Utilisateur)session.getAttribute("utilisateur");
-		//String message=u.getNom();
-		//request.setAttribute("msgJSP", message);
+		HttpSession session=request.getSession();
+		Utilisateur u= (Utilisateur)session.getAttribute("utilisateur");
 		request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp").forward(request,response);
-		
-		
-		
 		
 	}
 
@@ -47,7 +40,7 @@ public class AccueilServlets extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		doGet(request, response);
 	}
 
 }

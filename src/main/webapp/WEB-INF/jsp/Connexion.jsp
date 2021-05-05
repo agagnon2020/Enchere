@@ -13,15 +13,46 @@
 
 <nav class="onglets">
     <ul>
-        <li class="onglet"><a href="http://Localhost:8080/Encheres/AccueilDeconnecter"><button>ACCUEIL</button></a></li>
-        <li class="onglet"><a href="http://localhost:8080/Encheres/UsersConnexion"><button>CONNEXION</button></a></li>
+        <li class="onglet"><a href="http://Localhost:8080/Enchere/accueil"><button>ACCUEIL</button></a></li>
+        <li class="onglet"><a href="http://localhost:8080/Enchere/connexion"><button>CONNEXION</button></a></li>
     </ul>
 </nav>
+
+<h2>Connectez-vous</h2>
+
+<section>
+    
+
+    <p style='color: green'>${msgDeconnexion}</p>
+    
+    <p style='color: red'>${erreur }</p>
+    <form method="post" action="/Encheres/UsersConnexion">
+       
+       <p>
+          <label for="identifiant">Identifiant :</label><br/>
+           <input id="identifiant" type="text" name="identifiant" autofocus required/>
+       </p>
+       
+       
+       <p>
+          <label for="password">Mot de passe :</label><br/>
+           <input id="password" type="password" name="mot_de_passe" autofocus required/>
+       </p>
+       
+       <br/>
+    <br/>
+    <input type="submit" value="Connexion"/>
+   
+       
+        
+    </form>
+    
+</section>
 
 <h2>Créer votre compte</h2>
 
 	<section>
-    <form method="post" action="/Encheres/inscription">
+    <form method="post" action="/Enchere/inscription">
     <fieldset style='margin-left: 30%; margin-right: 30%;text-align:left;'>
 	   
 	   <legend>Formulaire d'inscription :</legend>

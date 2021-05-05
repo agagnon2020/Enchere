@@ -16,13 +16,13 @@ import fr.eni.bll.UserManager;
  * Servlet implementation class inscription
  */
 @WebServlet("/inscription")
-public class inscriptionServlets extends HttpServlet {
+public class InscriptionServlets extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public inscriptionServlets() {
+    public InscriptionServlets() {
         super();
     }
 
@@ -51,7 +51,7 @@ public class inscriptionServlets extends HttpServlet {
 		/*request.getRequestDispatcher("/WEB-INF/jsp/accueil.jsp").forward(request,response);*/
 	
 		
-			response.sendRedirect("/Encheres/Accueil");
+			response.sendRedirect("/Encheres/accueil");
 			//session.setAttribute("utilisateur", utilisateur);
 	
 		
