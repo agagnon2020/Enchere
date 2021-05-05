@@ -35,6 +35,7 @@ public class InscrireNewServlet extends HttpServlet {
 		Utilisateur user3 = new Utilisateur("MarieChristine", "Marie", "Christine", "mpariechristine@gmail.com", 06, "Avenue de la vie", 01010, "La Lune", "mdpmdp3", 100, false);
 		UserManager manager = new UserManager();
 
+		
 		manager.inscrire(user1);
 		//manager.inscrire(user2);
 		//manager.inscrire(user3);
