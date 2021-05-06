@@ -9,7 +9,7 @@
         %>
         <ul>
             <li>
-                Encheres
+                <a href="accueil">Enchères</a>
             </li>
             <li>
                 Vendre un article
