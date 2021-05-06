@@ -35,7 +35,7 @@
         </div>
     </form>
 	<div class="creacompte">
-    <button type="button" onclick="window.location.href='../Enchere'">Crée un compte</button>
+    <button type="button" onclick="window.location.href='/inscription'">Crée un compte</button>
 	</div> 
 </body>
 </html>
