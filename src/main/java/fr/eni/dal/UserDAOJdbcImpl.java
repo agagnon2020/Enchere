@@ -15,9 +15,8 @@ public class UserDAOJdbcImpl implements UserDAO {
     private static final String SELECT_BY_ID = "SELECT * FROM UTILISATEURS WHERE no_utilisateur=?";
     private static final String INSERT_USER = "insert into UTILISATEURS(pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur) values(?,?,?,?,?,?,?,?,?,?,?);";
     private static final String DELETE_USER = "delete from UTILISATEURS where no_utilisateur=?";
-    private static final String SELECT_BY_AUTH = "SELECT * FROM UTILISATEURS WHERE pseudo=? AND mot_de_passe=?";
+    private static final String SELECT_BY_AUTH = "SELECT * FROM UTILISATEURS WHERE ( pseudo=? OR email=? ) AND mot_de_passe=?";
     private static final String UPDATE_USER = "update UTILISATEURS set pseudo=?, nom=?, prenom=?, email=?, telephone=?, rue=?, code_postal=?, ville=?, mot_de_passe=?, credit=?, administrateur=? where no_utilisateur=?";
-    private static final String SELECT_BY_EMAIL = "SELECT * FROM UTILISATEURS WHERE email=? AND mot_de_passe=?";
      
     @Override
     public int insert(Utilisateur user) throws BusinessException {
@@ -152,7 +151,8 @@ public class UserDAOJdbcImpl implements UserDAO {
         try (Connection cnx = ConnectionProvider.getConnection()) {
             PreparedStatement pstmt = cnx.prepareStatement(SELECT_BY_AUTH);
             pstmt.setString(1, pseudo);
-            pstmt.setString(2, mdp);
+            pstmt.setString(2, pseudo);
+            pstmt.setString(3, mdp);
             ResultSet rs = pstmt.executeQuery();
             boolean premiereLigne = true;
             while (rs.next()) {
@@ -223,41 +223,6 @@ public class UserDAOJdbcImpl implements UserDAO {
             businessException.ajouterErreur(CodesResultatDAL.INSERT_OBJET_ECHEC);
             throw businessException;
         }
-	}
-
-	@Override
-	public Utilisateur selectByMail(String email, String mdp) throws BusinessException {
-		Utilisateur user = new Utilisateur();
-        try (Connection cnx = ConnectionProvider.getConnection()) {
-            PreparedStatement pstmt = cnx.prepareStatement(SELECT_BY_EMAIL);
-            pstmt.setString(1, email);
-            pstmt.setString(2, mdp);
-            ResultSet rs = pstmt.executeQuery();
-            boolean premiereLigne = true;
-            while (rs.next()) {
-                if (premiereLigne) {
-                	user.setPseudo(rs.getString("pseudo"));
-                	user.setPrenom(rs.getString("prenom"));
-                	user.setNom(rs.getString("nom"));
-                	user.setEmail(rs.getString("email"));
-                	user.setTelephone(rs.getString("telephone"));
-                	user.setRue(rs.getString("rue"));
-                	user.setCode_postal(rs.getString("code_postal"));
-                	user.setMot_de_passe(rs.getString("mot_de_passe"));
-                	user.setCredit(rs.getInt("credit"));
-                	user.setAdministrateur(rs.getBoolean("administrateur"));
-                	user.setNo_utilisateur(rs.getInt("no_utilisateur"));
-                    premiereLigne = false;
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            BusinessException businessException = new BusinessException();
-            businessException.ajouterErreur(CodesResultatDAL.SELECT_USER_ECHEC);
-            throw businessException;
-        }
-
-        return user;
 	}
 
 }
