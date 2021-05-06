@@ -70,7 +70,7 @@
             <input type="submit" value="Créer">
         </div>
         <div>
-            <button onclick="window.location.href='/accueil'">Annuler</button>
+            <button onclick="window.location.href='inscription'">Annuler</button>
         </div>
     </form>
 </body>
