@@ -42,15 +42,15 @@ public class ModificationUtilisateurServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session=request.getSession();
 		Utilisateur utilisateur= (Utilisateur)session.getAttribute("utilisateur");
-		utilisateur.setPseudo(request.getParameter("pseudo"));
-		utilisateur.setNom(request.getParameter("nom"));
-		utilisateur.setPrenom(request.getParameter("prenom"));
-		utilisateur.setEmail(request.getParameter("email"));
-		utilisateur.setTelephone(request.getParameter("telephone")); 
-		utilisateur.setRue(request.getParameter("rue"));
-		utilisateur.setCode_postal(request.getParameter("code_postal"));
-		utilisateur.setVille(request.getParameter("ville"));
-		utilisateur.setMot_de_passe(request.getParameter("mot_de_passe"));
+		if( request.getParameter("pseudo") != null ) utilisateur.setPseudo(request.getParameter("pseudo"));
+		if( request.getParameter("nom") != null ) utilisateur.setNom(request.getParameter("nom"));
+		if( request.getParameter("prenom") != null ) utilisateur.setPrenom(request.getParameter("prenom"));
+		if( request.getParameter("email") != null ) utilisateur.setEmail(request.getParameter("email"));
+		if( request.getParameter("telephone") != null ) utilisateur.setTelephone(request.getParameter("telephone")); 
+		if( request.getParameter("rue") != null ) utilisateur.setRue(request.getParameter("rue"));
+		if( request.getParameter("code_postal") != null ) utilisateur.setCode_postal(request.getParameter("code_postal"));
+		if( request.getParameter("ville") != null ) utilisateur.setVille(request.getParameter("ville"));
+		if( request.getParameter("mot_de_passe") != null ) utilisateur.setMot_de_passe(request.getParameter("mot_de_passe"));
 		
 		UserManager mger = new UserManager();
 		mger.modifierProfil(utilisateur);

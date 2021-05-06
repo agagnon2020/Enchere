@@ -1,5 +1,8 @@
 package fr.eni.bll;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import fr.eni.bo.Utilisateur;
 import fr.eni.dal.BusinessException;
 import fr.eni.dal.DAOFactory;
@@ -31,7 +34,22 @@ public class UserManager {
 
 	// Enregistrer le profil d'un utilisateur
 	public Integer inscrire(Utilisateur user) {
-
+		Pattern pattern;
+	    Matcher matcher;
+		pattern = Pattern.compile("%[^a-zA-Z0-9]%");
+        matcher = pattern.matcher(user.getPseudo());
+		if(!user.getEmail().contains("@")) {
+			return null;
+		}
+		if(!matcher.find()) {
+			return null;
+		}
+		if(authentifier(user.getPseudo(), user.getMot_de_passe()) != null) {
+			return null;
+		}
+		if(authentifier(user.getEmail(), user.getMot_de_passe()) != null) {
+			return null;
+		}
 		Integer id = null;
 		try {
 			id = dao.insert(user);
