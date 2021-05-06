@@ -11,7 +11,7 @@
 <body>
 	<header>
 		<div>
-			<a class="logo" href="/accueil">ENI - Enchères</a>
+			<a class="logo" href="accueil">ENI - Enchères</a>
 		</div>
 		<div>
 			<a href="connexion">S'inscrire - Se connecter</a>

@@ -9,10 +9,10 @@
 </head>
 <body>
 	<header>
-        <div>
-            <p>ENI-Encheres </p>
-        </div>
-    </header>
+		<div>
+			<a class="logo" href="accueil">ENI - Enchères</a>
+		</div>
+	</header>
     <form class="connexion" action="connexion" method="post">
         <table>
             <tr>

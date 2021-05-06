@@ -14,10 +14,10 @@
 </head>
 <body>
     <header>
-        <div>
-            <p>ENI-Encheres </p>
-        </div>
-    </header>
+		<div>
+			<a class="logo" href="accueil">ENI - Enchères</a>
+		</div>
+	</header>
     <h1>Mon profil</h1>
     <form class="inscription" action="inscription" method="post">
         <table>
