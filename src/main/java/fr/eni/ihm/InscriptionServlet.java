@@ -16,13 +16,13 @@ import fr.eni.bll.UserManager;
  * Servlet implementation class inscription
  */
 @WebServlet("/inscription")
-public class InscriptionServlets extends HttpServlet {
+public class InscriptionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InscriptionServlets() {
+    public InscriptionServlet() {
         super();
     }
 

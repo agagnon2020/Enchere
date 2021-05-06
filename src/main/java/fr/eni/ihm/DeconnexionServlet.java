@@ -6,21 +6,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import fr.eni.bo.Utilisateur;
 
 /**
- * Servlet implementation class Accueil
+ * Servlet implementation class Deconnexion
  */
-@WebServlet("/accueil")
-public class AccueilServlets extends HttpServlet {
+@WebServlet("/deconnexion")
+public class DeconnexionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AccueilServlets() {
+    public DeconnexionServlet() {
         super();
     }
 
@@ -28,17 +25,13 @@ public class AccueilServlets extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// Accueil sur le site avec attribution d'une session utilisateur
-		HttpSession session=request.getSession();
-		Utilisateur u= (Utilisateur)session.getAttribute("utilisateur");
-		if(u != null) {
-			String message=u.getNom();
-			request.setAttribute("msgJSP", message);
-			request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp").forward(request,response);
-		}
-		else {
-			request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp").forward(request, response);
-		}
+		
+		//Deconnexion de l'utilisateur reconnu de la session active
+		request.getSession().invalidate();
+		System.out.println("Je suis déconnecté !");
+		
+		request.setAttribute("msgDeconnexion", "Vous êtes bien déconnecté !");
+		request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp").forward(request,response);
 		
 	}
 
@@ -46,7 +39,7 @@ public class AccueilServlets extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		doGet(request, response);
 	}
 
 }
