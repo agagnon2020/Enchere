@@ -10,7 +10,7 @@
 <jsp:include page="/WEB-INF/fragments/head.jsp"/>
 <body>
 	<header>
-		<%@ include file="../fragments/header.html" %>
+		<%@ include file="../fragments/header.jsp" %>
 	</header>
     <h1>Mon profil</h1>
     <form class="inscription" action="inscription" method="post">

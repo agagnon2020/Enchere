@@ -5,7 +5,7 @@
 <jsp:include page="/WEB-INF/fragments/head.jsp"/>
 <body>
 	<header>
-		<%@ include file="../fragments/header.html" %>
+		<%@ include file="../fragments/header.jsp" %>
 	</header>
     <form class="connexion" action="connexion" method="post">
         <table>
