@@ -14,26 +14,35 @@
         </div>
     </header>
     <form class="connexion" action="connexion" method="post">
-        <p>
-            <label>Identifiant : </label>
-            <input type="text" name="id" >
-        </p>
-        <p>
-            <label>Mot de passe :</label>
-            <input type="password" name="mdp">
-        </p>
-        
-        <div>
-        <p>
-            <input type="submit" value="Connexion">
-            </p>
-            <p>
-            <input type="checkbox"><label>Se souvenir de moi</label>
-            <br/>
-            <a href="">Mot de passe oublié</a>
-            </p>
-        </div>
-    </form>
+        <table>
+            <tr>
+                <td>
+                    <label>Identifiant : </label>
+                </td>
+                <td>
+                    <input type="text" name="id" >
+                </td>
+            </tr>
+            <tr>
+            	<td>
+                    <label>Mot de passe :</label>
+                </td>
+                <td>
+                    <input type="password" name="mdp">
+                </td>
+            </tr>
+            <tr class="option_co">
+                <td class="button_co">
+                    <input type="submit" value="Connexion">
+                </td>
+                <td class="seconde_column">
+                    <input type="checkbox"><label>Se souvenir de moi</label>
+                    <br/>
+                    <a href="">Mot de passe oublié</a>
+                </td>
+            </tr>
+        </table>
+    </form>	
 	<div class="creacompte">
     <button type="button" onclick="window.location.href='inscription'">Crée un compte</button>
 	</div> 

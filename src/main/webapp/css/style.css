@@ -1,23 +1,21 @@
 body {
 	margin: 0 5em;
 }
-header, .filtre{
+header{
     overflow: hidden;
     display: flex;
     margin-right: 1em;
 }
 
-header a,
-header p{
+header a{
     margin: 0;
 }
 
 header div:nth-child(2n),
-header a{
+header a:not(header .logo){
     float: right;
 }
-header div,
-section .column{
+header div{
     width: 50%;
     margin: 1em 0;
 }
@@ -26,57 +24,99 @@ h1{
     text-align: center;
 }
 
-.filtre input[type="submit"],
-.creacompte button {
-    width: 25em;
-    height: 8em;
-    margin: 3em 0;
-}
-
-
-.filtre .column div{
-    margin: 1em 0;
-}
-
-.filtre input[type="text"]{
-	width:50%;
-}
-
-.filtre #categorie {
-    width: 39.5%;
-    text-align: center;
-}
-
-.connexion div {
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    width: 30%;
-}
-
-.connexion p,
-.creacompte{
-    margin-left: 27.1em;
-}
-
-.connexion div p{
-    margin: 0 1em;
-}
-
 .connexion div input[type="submit"] {
     width: 12em; 
     height: 7em;
 }
 
-.connexion div p:nth-child(2n){
-    margin: 1em 0;
-}
-.connexion div p:nth-child(2n) a{
-	display:block;
-	margin-top:1em;
-}
-
 .connexion p label:not(.connexion div p label) {
     width: 9em;
     display: inline-block;
+}
+
+.inscription table,
+.connexion table{
+	margin:0 auto;
+}
+
+.seconde_column {
+    padding-left: 5em;
+}
+
+.button_co input,
+.inscription input[type="submit"],
+button {
+    height: 4em;
+    width: 10em;
+}
+
+tr.option_co {
+    height: 5em;
+}
+
+.option_co .seconde_column{
+	padding-left: 1em;
+}
+
+.creacompte {
+	text-align : center;
+}
+
+.inscription table:nth-child(2n) {
+	margin-top: 1em;
+}
+
+.filtre table td {
+    width: 20em;
+}
+
+.filtre input[type="submit"]{
+	width: 24em;
+	height: 6em;
+}
+
+.filtre input[type="text"]{
+	width: 20em;
+	padding-left: 1em;
+	height: 2em;
+	border-radius: 12px;
+	border: 1px solid black;
+}
+
+.creacompte button {
+    width: 25em;
+    height: 6em;
+}
+
+input[type="submit"],
+button {
+    background-color: white;
+    border: 2px solid black;
+    box-shadow: 5px 5px 5px black;
+    font-weight: bold;
+}
+
+.filtre p{
+	font-weight: bold;
+}
+.filtre table td table tr{
+    height: 2.5em;
+}
+
+.filtre #categorie {
+    width: 15em;
+}
+
+header .logo {
+    font-size: 1.4em;
+    font-family: comic sans ms;
+}
+
+.option_co td {
+    width: 9em;
+}
+
+header .logo:link {
+    text-decoration: none;
+    color: black;
 }
