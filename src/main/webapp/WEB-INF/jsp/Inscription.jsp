@@ -7,16 +7,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Inscription</title>
-</head>
+<jsp:include page="/WEB-INF/fragments/head.jsp"/>
 <body>
-    <header>
-		<div>
-			<a class="logo" href="accueil">ENI - Enchères</a>
-		</div>
+	<header>
+		<%@ include file="../fragments/header.html" %>
 	</header>
     <h1>Mon profil</h1>
     <form class="inscription" action="inscription" method="post">

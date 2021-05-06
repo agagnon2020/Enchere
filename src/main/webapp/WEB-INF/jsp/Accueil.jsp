@@ -3,19 +3,10 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC>
 <html>
-<head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="css/style.css">
-<title>Accueil ENI-Enchere</title>
-</head>
+<jsp:include page="/WEB-INF/fragments/head.jsp"/>
 <body>
 	<header>
-		<div>
-			<a class="logo" href="accueil">ENI - Enchères</a>
-		</div>
-		<div>
-			<a href="connexion">S'inscrire - Se connecter</a>
-		</div>
+		<%@ include file="../fragments/header.html" %>
 	</header>
 	<h1>Liste des enchères</h1>
 
