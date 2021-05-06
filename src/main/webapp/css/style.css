@@ -1,3 +1,6 @@
+body {
+	margin: 0 5em;
+}
 header, .filtre{
     overflow: hidden;
     display: flex;
@@ -23,9 +26,10 @@ h1{
     text-align: center;
 }
 
-.filtre input[type="submit"] {
+.filtre input[type="submit"],
+.creacompte button {
     width: 25em;
-    height: 5em;
+    height: 8em;
     margin: 3em 0;
 }
 
@@ -41,4 +45,38 @@ h1{
 .filtre #categorie {
     width: 39.5%;
     text-align: center;
+}
+
+.connexion div {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+
+.connexion p,
+.creacompte{
+    margin-left: 27.1em;
+}
+
+.connexion div p{
+    margin: 0 1em;
+}
+
+.connexion div input[type="submit"] {
+    width: 12em; 
+    height: 7em;
+}
+
+.connexion div p:nth-child(2n){
+    margin: 1em 0;
+}
+.connexion div p:nth-child(2n) a{
+	display:block;
+	margin-top:1em;
+}
+
+.connexion p label:not(.connexion div p label) {
+    width: 9em;
+    display: inline-block;
 }
