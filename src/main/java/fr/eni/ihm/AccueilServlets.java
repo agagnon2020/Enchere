@@ -31,9 +31,15 @@ public class AccueilServlets extends HttpServlet {
 		// Accueil sur le site avec attribution d'une session utilisateur
 		HttpSession session=request.getSession();
 		Utilisateur u= (Utilisateur)session.getAttribute("utilisateur");
-		String message=u.getNom();
-		request.setAttribute("msgJSP", message);
-		request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp").forward(request,response);
+		if(u != null) {
+			String message=u.getNom();
+			request.setAttribute("msgJSP", message);
+			request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp").forward(request,response);
+		}
+		else {
+			request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp").forward(request, response);
+		}
+		
 	}
 
 	/**
