@@ -1,24 +1,7 @@
 body {
 	margin: 0 5em;
 }
-header{
-    overflow: hidden;
-    display: flex;
-    margin-right: 1em;
-}
 
-header a{
-    margin: 0;
-}
-
-header div:nth-child(2n),
-header a:not(header .logo){
-    float: right;
-}
-header div{
-    width: 50%;
-    margin: 1em 0;
-}
 
 h1{
     text-align: center;
@@ -119,4 +102,17 @@ header .logo {
 header .logo:link {
     text-decoration: none;
     color: black;
+}
+
+.header_table {
+    width: 100%;
+}
+
+.header_table td:last-child {
+	text-align: right;
+}
+
+.header_table ul li {
+    display: inline-block;
+    margin-left: 1em;
 }

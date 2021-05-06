@@ -1,10 +1,10 @@
-<header>
-    <div>
-        <a class="logo" href="accueil">ENI - Enchères</a>
-    </div>
-    <div>
-
-        <%if(
+<table class="header_table">
+	<tr>
+		<td>
+			<a class="logo" href="accueil">ENI - Enchères</a>
+		</td>
+		<td>
+			<%if(
         session.getAttribute("utilisateur")!=null){
         %>
         <ul>
@@ -26,5 +26,6 @@
         %>
         <a href="connexion">S'inscrire - Se connecter</a>
         <%}%>
-    </div>
-</header>
+		</td>
+	</tr>
+</table>
