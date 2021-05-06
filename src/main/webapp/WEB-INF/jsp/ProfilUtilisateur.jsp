@@ -26,6 +26,8 @@
 	   <legend>Voici votre profil ${utilisateur.pseudo}</legend>
 	   <p>Identifiant :  ${utilisateur.pseudo}
        </p>
+       <p>Crédit : ${utilisateur.credit}
+       </p>
        <p>Nom : ${utilisateur.nom}
        </p>
        <p>Prenom : ${utilisateur.prenom}
