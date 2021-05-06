@@ -68,7 +68,7 @@
                     <label>Code postal : </label>
                 </td>
                 <td>
-                    <input type="text" name="cp">
+                    <input type="text" name="code_postal">
                 </td>
                 <td class="seconde_column">
                     <label>Ville : </label>
@@ -82,7 +82,7 @@
                     <label>Mot de passe : </label>
                 </td>
                 <td>
-                    <input type="password" name="mdp">
+                    <input type="password" name="mot_de_passe">
                 </td>
                 <td class="seconde_column">
                     <label>Confirmation : </label>

@@ -46,9 +46,9 @@ public class InscriptionServlets extends HttpServlet {
 												request.getParameter("email"), 
 												request.getParameter("telephone"), 
 												request.getParameter("rue"), 
-												request.getParameter("cp"), 
+												request.getParameter("code_postal"), 
 												request.getParameter("ville"),  
-												request.getParameter("mdp"), 
+												request.getParameter("mot_de_passe"), 
 												100, 
 												false);
 		
