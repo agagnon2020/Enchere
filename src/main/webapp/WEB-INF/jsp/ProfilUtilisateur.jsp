@@ -12,39 +12,76 @@
 	<header>
 		<%@ include file="../fragments/header.jsp" %>
 	</header>
-	
-<a href="ModifierProfil">Modifier le profil</a>
-
-
-<h2>Compte Utilisateur: </h2>
-
-<p>Récapitulatif de vos coordonées</p>
-
-
-
-	   <fieldset style='margin-left: 30%; margin-right: 30%;text-align:left;'>
-	   <legend>Voici votre profil ${utilisateur.pseudo}</legend>
-	   <p>Identifiant :  ${utilisateur.pseudo}
-       </p>
-       <p>Crédit : ${utilisateur.credit}
-       </p>
-       <p>Nom : ${utilisateur.nom}
-       </p>
-       <p>Prenom : ${utilisateur.prenom}
-       </p>
-       <p>email : ${utilisateur.email}
-       </p>
-       <p>Numéro de téléphone : ${utilisateur.telephone}
-       </p>
-       <p>Rue ou Avenue : ${utilisateur.rue}
-       </p>
-       <p>Code Postal : ${utilisateur.code_postal}
-       </p>
-       <p>Ville :  ${utilisateur.ville}
-       </p>    
-       <p>Mot de passe : ${utilisateur.mot_de_passe}
-       </p>
-       </fieldset>
-
+	<table>
+		<tr>
+			<td>
+				Pseudo :
+			</td>
+			<td>
+				${utilisateur.pseudo}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Nom :
+			</td>
+			<td>
+				${utilisateur.nom}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Prénom :
+			</td>
+			<td>
+				${utilisateur.prenom}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Email :
+			</td>
+			<td>
+				${utilisateur.email}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Téléphone :
+			</td>
+			<td>
+				${utilisateur.telephone}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Rue :
+			</td>
+			<td>
+				${utilisateur.rue}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Code postal :
+			</td>
+			<td>
+				${utilisateur.code_postal}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Ville :
+			</td>
+			<td>
+				${utilisateur.ville}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<button onclick="window.location.href='ModifierProfil'">Modifier</button>
+			</td>
+		</tr>
+	</table>
 </body>
 </html>
