@@ -12,19 +12,21 @@
 	<header>
 		<%@ include file="../fragments/header.jsp" %>
 	</header>
+	
+	<h1>Mon profil</h1>
 <table>
 		<tr>
 			<td>
 				Pseudo :
 			</td>
 			<td>
-				${utilisateur.pseudo}
+				<input type="text" name="pseudo" placeholder="${utilisateur.pseudo}">
 			</td>
 			<td>
 				Nom :
 			</td>
 			<td>
-				${utilisateur.nom}
+				<input type="text" name="nom" placeholder="${utilisateur.nom}">
 			</td>
 		</tr>
 		<tr>
@@ -32,13 +34,13 @@
 				Prénom :
 			</td>
 			<td>
-				${utilisateur.prenom}
+				<input type="text" name="prenom" placeholder="${utilisateur.prenom}">
 			</td>
 			<td>
 				Email :
 			</td>
 			<td>
-				${utilisateur.email}
+				<input type="text" name="email" placeholder="${utilisateur.email}">
 			</td>
 		</tr>
 		<tr>
@@ -46,13 +48,13 @@
 				Téléphone :
 			</td>
 			<td>
-				${utilisateur.telephone}
+				<input type="text" name="telephone" placeholder="${utilisateur.telephone}">
 			</td>
 			<td>
 				Rue :
 			</td>
 			<td>
-				${utilisateur.rue}
+				<input type="text" name="rue" placeholder="${utilisateur.rue}">
 			</td>
 		</tr>
 		<tr>
@@ -60,13 +62,13 @@
 				Code postal :
 			</td>
 			<td>
-				${utilisateur.code_postal}
+				<input type="text" name="code_postal" placeholder="${utilisateur.code_postal}">
 			</td>
 			<td>
 				Ville :
 			</td>
 			<td>
-				${utilisateur.ville}
+				<input type="text" name="ville" placeholder="${utilisateur.ville}">
 			</td>
 		</tr>
 		<tr>
@@ -74,7 +76,7 @@
 				Mot de passe actuel :
 			</td>
 			<td>
-				${utilisateur.mdp}
+				<input type="password" name="mot_de_passe" placeholder="${utilisateur.mot_de_passe}">
 			</td>
 			<td>
 			

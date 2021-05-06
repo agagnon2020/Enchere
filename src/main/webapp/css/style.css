@@ -28,7 +28,8 @@ h1{
 
 .button_co input,
 .inscription input[type="submit"],
-button {
+button,
+input[type="submit"] {
     height: 4em;
     width: 10em;
 }
@@ -115,4 +116,8 @@ header .logo:link {
 .header_table ul li {
     display: inline-block;
     margin-left: 1em;
+}
+
+table {
+    margin: 1em auto;
 }
