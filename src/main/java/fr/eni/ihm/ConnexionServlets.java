@@ -41,23 +41,24 @@ public class ConnexionServlets extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//Etape 1 : Récupération des infos utilisateur
-		String identifiant = request.getParameter("identifiant");
+		String identifiant = request.getParameter("id");
+		String mdp = request.getParameter("mdp");
 		
 		HttpSession session=request.getSession();
 		
-		Utilisateur u= (Utilisateur)session.getAttribute("utilisateur");
-		Integer id = u.getNo_utilisateur();
-		session.setAttribute("no_utilisateur", id);
+		//Utilisateur u= (Utilisateur)session.getAttribute("utilisateur");
+		//Integer id = u.getNo_utilisateur();
+		//session.setAttribute("no_utilisateur", id);
 		
-		System.out.println("Identifiant :"+ identifiant);
+		//System.out.println("Identifiant :"+ identifiant);
 		
-		String mot_de_passe = request.getParameter("mot_de_passe");
+		//String mot_de_passe = request.getParameter("mot_de_passe");
 		
-		System.out.println("Mot de passe :"+ mot_de_passe);
+		//System.out.println("Mot de passe :"+ mot_de_passe);
 		
 		//Traiter les infos
 		UserManager mger = new UserManager();
-		Utilisateur utilisateur  = mger.authentifier(identifiant, mot_de_passe);
+		Utilisateur utilisateur  = mger.authentifier(identifiant, mdp);
 
 		
 		if(utilisateur != null) {
