@@ -15,7 +15,7 @@
                 Vendre un article
             </li>
             <li>
-                Mon profil
+                <a href="profil">Mon profil</a>
             </li>
             <li>
                 Déconnexion

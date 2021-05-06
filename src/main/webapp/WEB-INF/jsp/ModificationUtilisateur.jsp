@@ -7,28 +7,22 @@
 <link rel="stylesheet" href="css/style.css">
 <title>Modifier votre profil</title>
 </head>
+<jsp:include page="/WEB-INF/fragments/head.jsp"/>
 <body>
-
-<h1> ENI-ENCHERES </h1>
-
-<nav class="onglets">
-    <ul>
-        <li class="onglet"><a href="http://localhost:8080/Encheres/Accueil"><button>ACCUEIL</button></a></li>
-        <li class="onglet"><a href="http://localhost:8080/Encheres/Deconnexion"><button>DECONNEXION</button></a></li>
-        <li class="onglet"><a href="http://localhost:8080/Encheres/Profil"><button>VOTRE COMPTE</button></a></li>
-    </ul>
-</nav>
+	<header>
+		<%@ include file="../fragments/header.jsp" %>
+	</header>
 
 <p>Complétez le champs correspondant à la modification que vous souhaitez apporter</p>
 <a style='text-align: left;' href="http://localhost:8080/Encheres/SupprimerProfil" ><button>Supprimer le profil</button> </a><br><br>
 
-	   <form method="post" action="/Encheres/ModificationUtilisateur">
+	   <form method="post" action="ModifierProfil">
 	   
 	   <fieldset style='margin-left: 30%; margin-right: 30%;text-align:left;'>
 	   
 	   <legend>Modification du profil : ${utilisateur.nom} ${utilisateur.prenom}</legend>
 	   
-          <p><label for="identifiant">Identifiant à modifier:</label><input type="text" name="identifiant" value="${utilisateur.identifiant}"/></p>
+          <p><label for="identifiant">Identifiant à modifier:</label><input type="text" name="pseudo" value="${utilisateur.pseudo}"/></p>
           
           <p><label for="nom">Nom à modifier:</label><input type="text" name="nom" value="${utilisateur.nom}"/></p>
           

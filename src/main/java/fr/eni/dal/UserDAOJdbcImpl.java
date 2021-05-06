@@ -164,6 +164,7 @@ public class UserDAOJdbcImpl implements UserDAO {
                 	user.setTelephone(rs.getString("telephone"));
                 	user.setRue(rs.getString("rue"));
                 	user.setCode_postal(rs.getString("code_postal"));
+                	user.setVille(rs.getString("ville"));
                 	user.setMot_de_passe(rs.getString("mot_de_passe"));
                 	user.setCredit(rs.getInt("credit"));
                 	user.setAdministrateur(rs.getBoolean("administrateur"));

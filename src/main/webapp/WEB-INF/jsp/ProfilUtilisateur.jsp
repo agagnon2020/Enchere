@@ -7,18 +7,13 @@
 <link rel="stylesheet" href="css/style.css">
 <title>Compte Utilisateur</title>
 </head>
+<jsp:include page="/WEB-INF/fragments/head.jsp"/>
 <body>
-
-<h1> ENI-ENCHERES </h1>
-
-<nav class="onglets">
-    <ul>
-        <li class="onglet"><a href="http://localhost:8080/Encheres/Accueil"><button>ACCUEIL</button></a></li>
-        <li class="onglet"><a href="http://localhost:8080/Encheres/ModificationUtilisateur"><button>MODIFIER PROFIL</button></a></li>
-        <li class="onglet"><a href="http://localhost:8080/Encheres/SupprimerProfil"><button>SUPRIMMER PROFIL</button></a></li>
-        <li class="onglet"><a href="http://localhost:8080/Encheres/Deconnexion"><button>DECONNEXION</button></a></li>
-    </ul>
-</nav>
+	<header>
+		<%@ include file="../fragments/header.jsp" %>
+	</header>
+	
+<a href="ModifierProfil">Modifier le profil</a>
 
 
 <h2>Compte Utilisateur: </h2>
@@ -28,8 +23,8 @@
 
 
 	   <fieldset style='margin-left: 30%; margin-right: 30%;text-align:left;'>
-	   <legend>Voici votre profil ${utilisateur.identifiant}</legend>
-	   <p>Identifiant :  ${utilisateur.identifiant}
+	   <legend>Voici votre profil ${utilisateur.pseudo}</legend>
+	   <p>Identifiant :  ${utilisateur.pseudo}
        </p>
        <p>Nom : ${utilisateur.nom}
        </p>
