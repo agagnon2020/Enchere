@@ -5,7 +5,7 @@ import java.util.List;
 import fr.eni.bo.Utilisateur;
 
 public interface UserDAO {
-	public int insert(Utilisateur user) throws BusinessException;
+	public Utilisateur insert(Utilisateur user) throws BusinessException;
 	public List<Utilisateur> selectAll() throws BusinessException;
 	public Utilisateur selectById(int id) throws BusinessException;
 	public void deleteUser(int idUser) throws BusinessException;

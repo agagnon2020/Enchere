@@ -19,7 +19,7 @@ public class UserDAOJdbcImpl implements UserDAO {
     private static final String UPDATE_USER = "update UTILISATEURS set pseudo=?, nom=?, prenom=?, email=?, telephone=?, rue=?, code_postal=?, ville=?, mot_de_passe=?, credit=?, administrateur=? where no_utilisateur=?";
      
     @Override
-    public int insert(Utilisateur user) throws BusinessException {
+    public Utilisateur insert(Utilisateur user) throws BusinessException {
         if (user == null) {
             BusinessException businessException = new BusinessException();
             businessException.ajouterErreur(CodesResultatDAL.INSERT_OBJET_NULL);
@@ -64,7 +64,8 @@ public class UserDAOJdbcImpl implements UserDAO {
             businessException.ajouterErreur(CodesResultatDAL.INSERT_OBJET_ECHEC);
             throw businessException;
         }
-        return user.getNo_utilisateur();
+        
+        return user;
 
     }
 

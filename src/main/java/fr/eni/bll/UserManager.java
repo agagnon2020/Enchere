@@ -33,32 +33,36 @@ public class UserManager {
 	}
 
 	// Enregistrer le profil d'un utilisateur
-	public Integer inscrire(Utilisateur user) {
+	public Utilisateur inscrire(Utilisateur user) {
+		boolean erreur = false;
 		Pattern pattern;
 	    Matcher matcher;
-		pattern = Pattern.compile("%[^a-zA-Z0-9]%");
+		pattern = Pattern.compile("[a-zA-Z0-9]*");
         matcher = pattern.matcher(user.getPseudo());
 		if(!user.getEmail().contains("@")) {
-			return null;
+			erreur = true;
 		}
 		if(!matcher.find()) {
-			return null;
+			erreur = true;
 		}
 		if(authentifier(user.getPseudo(), user.getMot_de_passe()) != null) {
-			return null;
+			erreur = true;
 		}
 		if(authentifier(user.getEmail(), user.getMot_de_passe()) != null) {
-			return null;
+			erreur = true;
 		}
-		Integer id = null;
-		try {
-			id = dao.insert(user);
-		} catch (BusinessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if(erreur == false) {
+			try {
+				return dao.insert(user);
+			} catch (BusinessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else {
+			user.setNo_utilisateur(0);
+			return user;
 		}
-
-		return id;
+		return null;
 
 	}
 

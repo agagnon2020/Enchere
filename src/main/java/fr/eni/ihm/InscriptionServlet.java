@@ -55,15 +55,18 @@ public class InscriptionServlet extends HttpServlet {
 		
 		//Appeler la BLL pour inscrire l'utilisateur
 		UserManager mger = new UserManager();
-		Integer id = mger.inscrire(utilisateur);
+		Utilisateur userDal = new Utilisateur();
+		userDal = mger.inscrire(utilisateur);
+		System.out.println(userDal);
 		HttpSession session = request.getSession();
-		session.setAttribute("idUtilisateur", id);
+		if(userDal.getNo_utilisateur() != 0) {
+			session.setAttribute("utilisateur", userDal);
+		}
 		
-		request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp").forward(request,response);
+		request.getRequestDispatcher("/WEB-INF/jsp/Connexion.jsp").forward(request,response);
 	
 		
-			response.sendRedirect("/Enchere/accueil");
-			session.setAttribute("utilisateur", utilisateur);
+			//response.sendRedirect("/Enchere/accueil");
 	
 		
 	}
