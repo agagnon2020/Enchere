@@ -50,7 +50,7 @@ public class ModificationUtilisateurServlet extends HttpServlet {
 		if( request.getParameter("rue") != null ) utilisateur.setRue(request.getParameter("rue"));
 		if( request.getParameter("code_postal") != null ) utilisateur.setCode_postal(request.getParameter("code_postal"));
 		if( request.getParameter("ville") != null ) utilisateur.setVille(request.getParameter("ville"));
-		if( request.getParameter("mot_de_passe") != null ) utilisateur.setMot_de_passe(request.getParameter("mot_de_passe"));
+		if( request.getParameter("mot_de_passe") != null ) utilisateur.setMot_de_passe(request.getParameter("n_mot_de_passe"));
 		
 		UserManager mger = new UserManager();
 		mger.modifierProfil(utilisateur);

@@ -38,7 +38,7 @@ public class Utilisateur {
 	}
 	
 	public Utilisateur(){
-		
+		this.nom = "";
 	}
 
 	public int getNo_utilisateur() {
