@@ -14,7 +14,7 @@ import fr.eni.bo.Utilisateur;
 /**
  * Servlet implementation class ModificationUtilisateurServlet
  */
-@WebServlet("/ModifierProfil")
+@WebServlet("/modification")
 public class ModificationUtilisateurServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -42,8 +42,8 @@ public class ModificationUtilisateurServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session=request.getSession();
 		Utilisateur utilisateur= (Utilisateur)session.getAttribute("utilisateur");
-		if( request.getParameter("pseudo") != null ) utilisateur.setPseudo(request.getParameter("pseudo"));
-		if( request.getParameter("nom") != null ) utilisateur.setNom(request.getParameter("nom"));
+		if( request.getParameter("pseudo") != "" ) utilisateur.setPseudo(request.getParameter("pseudo"));
+		if( request.getParameter("nom") != "" ) utilisateur.setNom(request.getParameter("nom"));
 		if( request.getParameter("prenom") != null ) utilisateur.setPrenom(request.getParameter("prenom"));
 		if( request.getParameter("email") != null ) utilisateur.setEmail(request.getParameter("email"));
 		if( request.getParameter("telephone") != null ) utilisateur.setTelephone(request.getParameter("telephone")); 

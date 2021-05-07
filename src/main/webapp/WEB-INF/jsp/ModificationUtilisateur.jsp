@@ -14,6 +14,8 @@
 	</header>
 	
 	<h1>Mon profil</h1>
+	
+	<form class="modification" action="modification" method="post">
 <table>
 		<tr>
 			<td>
@@ -124,5 +126,6 @@
 			</td>
 		</tr>
 	</table>
+	</form>
 </body>
 </html>

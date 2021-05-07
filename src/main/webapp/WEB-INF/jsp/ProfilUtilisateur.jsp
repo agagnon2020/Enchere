@@ -79,7 +79,7 @@
 		</tr>
 		<tr>
 			<td>
-				<button onclick="window.location.href='ModifierProfil'">Modifier</button>
+				<button onclick="window.location.href='modification'">Modifier</button>
 			</td>
 		</tr>
 	</table>
