@@ -6,5 +6,16 @@ public abstract class DAOFactory {
 	{
 		return new UserDAOJdbcImpl();
 	}
+	
+	public static ArticleDAO getArticleDAO()
+	{
+		return new ArticleDAOJdbcImpl();
+	}
+	
+	public static CategorieDAO getCategorieDAO()
+	{
+		return new CategorieDAOJdbcImpl();
+	}
+
 }
 	
