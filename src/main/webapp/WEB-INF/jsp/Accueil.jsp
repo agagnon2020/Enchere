@@ -8,7 +8,6 @@
 	<header>
 		<%@ include file="../fragments/header.jsp"%>
 	</header>
-	<script src="toggle.js">
 	</script>
 	<div
 		class="deco_popup ${statut}">
