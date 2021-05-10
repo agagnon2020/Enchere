@@ -63,8 +63,10 @@ public class InscriptionServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 				if(userDal.getNo_utilisateur() != 0) {
 					session.setAttribute("utilisateur", userDal);
+					request.getRequestDispatcher("/WEB-INF/jsp/Connexion.jsp").forward(request,response);
+				}else {
+					request.getRequestDispatcher("/WEB-INF/jsp/Inscription.jsp").forward(request,response);
 				}
-			request.getRequestDispatcher("/WEB-INF/jsp/Connexion.jsp").forward(request,response);
 		}
 		else
 		{	
