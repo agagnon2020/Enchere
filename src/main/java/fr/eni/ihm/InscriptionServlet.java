@@ -39,7 +39,7 @@ public class InscriptionServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String cMdp = request.getParameter("c_mdp");
-		String mdp = request.getParameter("mot-de-passe");
+		String mdp = request.getParameter("mot_de_passe");
 		
 		// Verification de la confirmation de MDP
 		if(cMdp==mdp){
@@ -70,10 +70,6 @@ public class InscriptionServlet extends HttpServlet {
 		{	
 		request.getRequestDispatcher("/WEB-INF/jsp/Inscription.jsp").forward(request,response);
 		}
-	
-		
-			//response.sendRedirect("/Enchere/accueil");
-	
 		
 	}
 
