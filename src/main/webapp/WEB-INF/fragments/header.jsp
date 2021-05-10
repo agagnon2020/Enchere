@@ -18,7 +18,7 @@
                 <a href="profil">Mon profil</a>
             </li>
             <li>
-                Déconnexion
+                <a href="deconnexion">Déconnexion</a>
             </li>
         </ul>
         <%
