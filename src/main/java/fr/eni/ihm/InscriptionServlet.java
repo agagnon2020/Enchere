@@ -38,38 +38,36 @@ public class InscriptionServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//Recupération des informations entrés dans le formulaire pour créer un utilisateur en bdd
-		
-		Utilisateur utilisateur = new Utilisateur( request.getParameter("pseudo"), 
-												request.getParameter("nom"), 
-												request.getParameter("prenom"), 
-												request.getParameter("email"), 
-												request.getParameter("telephone"), 
-												request.getParameter("rue"), 
-												request.getParameter("code_postal"), 
-												request.getParameter("ville"),  
-												request.getParameter("mot_de_passe"), 
-												100, 
-												false);
 		String cMdp = request.getParameter("c_mdp");
 		String mdp = request.getParameter("mot-de-passe");
 		
 		// Verification de la confirmation de MDP
 		if(cMdp==mdp){
+			//Recupération des informations entrés dans le formulaire pour créer un utilisateur en bdd
+			Utilisateur utilisateur = new Utilisateur( request.getParameter("pseudo"), 
+					request.getParameter("nom"), 
+					request.getParameter("prenom"), 
+					request.getParameter("email"), 
+					request.getParameter("telephone"), 
+					request.getParameter("rue"), 
+					request.getParameter("code_postal"), 
+					request.getParameter("ville"),  
+					request.getParameter("mot_de_passe"), 
+					100, 
+					false);
 		//Appeler la BLL pour inscrire l'utilisateur
-		UserManager mger = new UserManager();
-		Utilisateur userDal = new Utilisateur();
-		userDal = mger.inscrire(utilisateur);
-		System.out.println(userDal);
-		HttpSession session = request.getSession();
-		if(userDal.getNo_utilisateur() != 0) {
-			session.setAttribute("utilisateur", userDal);
-		}
-		request.getRequestDispatcher("/WEB-INF/jsp/Connexion.jsp").forward(request,response);
+			UserManager mger = new UserManager();
+			Utilisateur userDal = new Utilisateur();
+			userDal = mger.inscrire(utilisateur);
+			System.out.println(userDal);
+			HttpSession session = request.getSession();
+				if(userDal.getNo_utilisateur() != 0) {
+					session.setAttribute("utilisateur", userDal);
+				}
+			request.getRequestDispatcher("/WEB-INF/jsp/Connexion.jsp").forward(request,response);
 		}
 		else
-		{
-		
+		{	
 		request.getRequestDispatcher("/WEB-INF/jsp/Inscription.jsp").forward(request,response);
 		}
 	
