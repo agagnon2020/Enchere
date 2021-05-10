@@ -35,12 +35,13 @@ public class SuppressionCompteServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		Utilisateur utilisateur = (Utilisateur)session.getAttribute("utilisateur");
 		manager.supprimerProfil(utilisateur.getNo_utilisateur());
-		session.invalidate();
-
 		request.setAttribute("msgDeconnexion", "Votre compte a été supprimmé");
 		request.setAttribute("statut", "active");
-
+		session.setAttribute("utilisateur", null);
+		request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp").forward(request,response);
+		session.invalidate();
 		response.sendRedirect("/Enchere/accueil");
+		
 	}
 
 	/**
