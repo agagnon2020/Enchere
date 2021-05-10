@@ -33,7 +33,6 @@ public class SuppressionCompteServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		UserManager manager = new UserManager();
 		HttpSession session = request.getSession();
-
 		Utilisateur utilisateur = (Utilisateur)session.getAttribute("utilisateur");
 		manager.supprimerProfil(utilisateur.getNo_utilisateur());
 		session.invalidate();
