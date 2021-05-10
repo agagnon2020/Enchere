@@ -51,8 +51,11 @@ public class InscriptionServlet extends HttpServlet {
 												request.getParameter("mot_de_passe"), 
 												100, 
 												false);
+		String cMdp = request.getParameter("c_mdp");
+		String mdp = request.getParameter("mot-de-passe");
 		
-		
+		// Verification de la confirmation de MDP
+		if(cMdp==mdp){
 		//Appeler la BLL pour inscrire l'utilisateur
 		UserManager mger = new UserManager();
 		Utilisateur userDal = new Utilisateur();
@@ -62,8 +65,13 @@ public class InscriptionServlet extends HttpServlet {
 		if(userDal.getNo_utilisateur() != 0) {
 			session.setAttribute("utilisateur", userDal);
 		}
-		
 		request.getRequestDispatcher("/WEB-INF/jsp/Connexion.jsp").forward(request,response);
+		}
+		else
+		{
+		
+		request.getRequestDispatcher("/WEB-INF/jsp/Inscription.jsp").forward(request,response);
+		}
 	
 		
 			//response.sendRedirect("/Enchere/accueil");
