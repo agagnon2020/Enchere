@@ -55,11 +55,7 @@ public class ModificationUtilisateurServlet extends HttpServlet {
 				if( request.getParameter("rue") != "" ) utilisateur.setRue(request.getParameter("rue"));
 				if( request.getParameter("code_postal") != "" ) utilisateur.setCode_postal(request.getParameter("code_postal"));
 				if( request.getParameter("ville") != "" ) utilisateur.setVille(request.getParameter("ville"));
-//					if(cMdp.equals(mdp)){
-//					if( request.getParameter("mot_de_passe") != "" ) utilisateur.setMot_de_passe(request.getParameter("n_mot_de_passe"));
-//					}else {
-//						request.getRequestDispatcher("/WEB-INF/jsp/ModificationUtilisateur.jsp").forward(request,response);
-//					}
+
 				if(!(request.getParameter("mot_de_passe")).equals(request.getParameter("n_mot_de_passe")) && 
 						(request.getParameter("n_mot_de_passe")).equals(request.getParameter("c_mot_de_passe"))){ 
 					utilisateur.setMot_de_passe(request.getParameter("c_mot_de_passe"));
