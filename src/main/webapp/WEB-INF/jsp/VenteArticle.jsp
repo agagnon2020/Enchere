@@ -40,12 +40,20 @@
 			</tr>
 			<tr>
 				<td>Début de l'enchère : </td>
-				<td><input type="datetime" name="debut_vente">
+				<td><input id="Aujourdhui" type="date" name="debut_vente">
+				<script>
+				document.getElementById("Aujourdhui").valueAsDate = new Date();
+				</script>
 				</td>
 			</tr>
 			<tr>
 				<td>Fin de l'enchère : </td>
-				<td><input type="datetime" name="fin_vente">
+				<td><input id="Demain" type="date" name="fin_vente">
+				<script>
+				myDate = new Date();
+				myDate.setDate(myDate.getDate() + 1);
+				document.getElementById("Demain").valueAsDate = myDate;
+				</script>
 				</td>
 			</tr>
 			</table>
