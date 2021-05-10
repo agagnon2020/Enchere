@@ -31,6 +31,7 @@ public class DeconnexionServlet extends HttpServlet {
 		System.out.println("Je suis déconnecté !");
 		
 		request.setAttribute("msgDeconnexion", "Vous êtes bien déconnecté !");
+		request.setAttribute("statut", "active");
 		request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp").forward(request,response);
 		
 	}
