@@ -38,11 +38,13 @@ public class InscriptionServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		System.out.println(request.getParameter("nom"));
+		
 		String cMdp = request.getParameter("c_mdp");
 		String mdp = request.getParameter("mot_de_passe");
 		
 		// Verification de la confirmation de MDP
-		if(cMdp==mdp){
+		if(cMdp.equals(mdp)){
 			//Recupération des informations entrés dans le formulaire pour créer un utilisateur en bdd
 			Utilisateur utilisateur = new Utilisateur( request.getParameter("pseudo"), 
 					request.getParameter("nom"), 
@@ -65,7 +67,7 @@ public class InscriptionServlet extends HttpServlet {
 					session.setAttribute("utilisateur", userDal);
 					request.getRequestDispatcher("/WEB-INF/jsp/Connexion.jsp").forward(request,response);
 				}else {
-					request.getRequestDispatcher("/WEB-INF/jsp/Inscription.jsp").forward(request,response);
+					request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp").forward(request,response);
 				}
 		}
 		else
