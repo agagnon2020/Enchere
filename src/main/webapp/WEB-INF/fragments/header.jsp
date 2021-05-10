@@ -12,7 +12,7 @@
                 <a href="accueil">Enchères</a>
             </li>
             <li>
-                Vendre un article
+                <a href="vente">Vendre un article</a>
             </li>
             <li>
                 <a href="profil">Mon profil</a>

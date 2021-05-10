@@ -8,7 +8,6 @@
 	<header>
 		<%@ include file="../fragments/header.jsp"%>
 	</header>
-	</script>
 	<div
 		class="deco_popup ${statut}">
 
@@ -46,6 +45,36 @@
 									<option value="sport">Sport & Loisirs</option>
 							</select></td>
 						</tr>
+						<%if(session.getAttribute("utilisateur")!=null){%>
+						<tr>
+							<td>
+								<input type="radio" name="select" value="achats">
+								<label for="select">Achats</label>
+							<br/>
+								<input type="checkbox" name="option1" value="1" >
+								<label for="option1">Enchères ouvertes</label>
+							<br/>
+								<input type="checkbox" name="option2" value="2">
+								<label for="option2">Mes enchères</label>
+							<br/>
+								<input type="checkbox" name="option3" value="3">
+								<label for="option3">mes enchères remportées</label>
+							</td>
+							<td>
+								<input type="radio" name="select" value="ventes">
+								<label for="select">Ventes</label>
+							<br/>
+								<input type="checkbox" name="option1" value="1">
+								<label for="option1">Mes ventes en cours</label>
+							<br/>
+								<input type="checkbox" name="option2" value="2">
+								<label for="option2">Ventes non débutées</label>
+							<br/>
+								<input type="checkbox" name="option3" value="3">
+								<label for="option3">Ventes terminées</label>
+							</td>
+						</tr>
+						<%}%>
 					</table>
 				</td>
 				<td class="seconde_column"><input type="submit"
