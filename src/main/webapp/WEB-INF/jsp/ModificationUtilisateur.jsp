@@ -122,7 +122,7 @@
 				<input type="submit" value="Enregistrer">
 			</td>
 			<td>
-				<input type="submit" onclick="window.location='/Enchere/SuppressionCompte';" value="Supprimer" name="Supprimer mon compte"/>
+				<button type="button" onclick="window.location.href='SuppressionCompte'">Supprimer</button>
 			</td>
 		</tr>
 	</table>
