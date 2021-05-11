@@ -72,7 +72,7 @@ public class InscriptionServlet extends HttpServlet {
 		}
 		else
 		{	
-		request.getRequestDispatcher("/WEB-INF/jsp/Inscription.jsp").forward(request,response);
+			request.getRequestDispatcher("/WEB-INF/jsp/Inscription.jsp").forward(request,response);
 		}
 		
 	}
