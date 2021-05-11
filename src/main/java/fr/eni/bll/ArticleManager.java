@@ -43,11 +43,11 @@ public class ArticleManager {
 		dateJour.compareTo(dateDeb); //dateJour < dateDeb, renvoie un négatif
 		dateDeb.compareTo(dateFin); //date2 > date1, renvoie un positif
 
-		if(dateJour.before(dateDeb) || dateJour.equals(dateDeb)){
+		if(!dateJour.before(dateDeb) || dateJour.equals(dateDeb)){
 			erreur =true;
 			
 		}
-		if (dateDeb.after(dateFin) || dateDeb.equals(dateFin)) {
+		if (!dateDeb.after(dateFin) || dateDeb.equals(dateFin)) {
 			erreur =true;
 		}
 		if(erreur == false) {
