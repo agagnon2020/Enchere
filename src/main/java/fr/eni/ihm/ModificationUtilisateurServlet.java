@@ -41,10 +41,6 @@ public class ModificationUtilisateurServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session=request.getSession();
-		
-		String cMdp = request.getParameter("c_mot_de_passe");
-		String mdp = request.getParameter("n_mot_de_passe");
-		
 			
 				Utilisateur utilisateur= (Utilisateur)session.getAttribute("utilisateur");
 				if( request.getParameter("pseudo") != "" ) utilisateur.setPseudo(request.getParameter("pseudo"));
