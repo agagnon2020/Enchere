@@ -10,4 +10,5 @@ public interface CategorieDAO {
 	public Categorie selectById(int id) throws BusinessException;
 	public void deleteCategorie(int idCategorie) throws BusinessException;
 	public void updateCategorie(Categorie categorie) throws BusinessException;
+	public Categorie searchName(String nomCategorie) throws BusinessException;
 }

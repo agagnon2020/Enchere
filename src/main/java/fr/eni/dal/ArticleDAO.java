@@ -10,4 +10,6 @@ public interface ArticleDAO {
 	public ArticleVendu selectById(int id) throws BusinessException;
 	public void deleteArticle(int idArticle) throws BusinessException;
 	public void updateArticle(ArticleVendu article) throws BusinessException;
+	public List<ArticleVendu> searchName(String nomArticle) throws BusinessException; 
+	public List<ArticleVendu> searchCategory(String nomCategorie) throws BusinessException; 
 }

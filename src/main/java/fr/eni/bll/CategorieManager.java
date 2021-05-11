@@ -25,5 +25,18 @@ public class CategorieManager {
 		if(categorie.getLibelle().equals("")) return null;
 		return categorie;
 	}
+	
+	public int recupererCategorie(String nom) {
+		Categorie categorie = null;
+
+		try {
+			categorie = dao.searchName(nom);
+		} catch (BusinessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(categorie.getLibelle().equals("")) return 0;
+		return categorie.getNo_categorie();
+	}
 
 }
