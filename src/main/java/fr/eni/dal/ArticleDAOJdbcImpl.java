@@ -19,7 +19,7 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
     private static final String INSERT_ARTICLE = "insert into ARTICLES_VENDUS(nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, prix_vente, no_utilisateur, no_categorie) values(?,?,?,?,?,?,?,?);";
     private static final String DELETE_ARTICLE = "delete from ARTICLES_VENDUS where no_article=?";
     private static final String UPDATE_ARTICLE = "update ARTICLES_VENDUS set nom_article=?, description=?, date_debut_encheres=?, date_fin_encheres=?, prix_initial=?, prix_vente=?, no_utilisateur=?, no_categorie=? where no_article=?";
-    private static final String SEARCH_NAME = "SELECT * FROM ARTICLES_VENDUS WHERE nom_article LIKE '%?%'";
+    private static final String SEARCH_NAME = "SELECT * FROM ARTICLES_VENDUS WHERE nom_article LIKE '%'+?+'%'";
     private static final String SEARCH_CATEGORY = "SELECT * FROM ARTICLES_VENDUS WHERE no_categorie=?";
     
     @Override
@@ -124,6 +124,7 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
             while (rs.next()) {
                 if (premiereLigne) {
                 	article.setNoArticle(rs.getInt("no_article"));
+                	article.setDescription(rs.getString("description"));
                 	article.setNomArticle(rs.getString("nom_article"));
                 	article.setDateDebutEncheres(rs.getDate("date_debut_encheres"));
                 	article.setDateFinEncheres(rs.getDate("date_fin_encheres"));
@@ -131,6 +132,8 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
                 	article.setMiseAPrix(rs.getInt("prix_initial"));
                 	UserManager userM = new UserManager();
                 	article.setVendeur(userM.infosProfil(rs.getInt("no_utilisateur")));
+                	CategorieManager userC = new CategorieManager();
+                	article.setCategorie(userC.informationCategorie(rs.getInt("no_categorie")));
                 	//article.setNoArticle(rs.getInt("no_article"));
                     premiereLigne = false;
                 }

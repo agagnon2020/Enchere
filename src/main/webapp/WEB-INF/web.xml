@@ -4,4 +4,14 @@
   <welcome-file-list>
     <welcome-file>/WEB-INF/jsp/Accueil.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>FicheArticle</display-name>
+    <servlet-name>FicheArticle</servlet-name>
+    <jsp-file>/WEB-INF/jsp/FicheArticle.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FicheArticle</servlet-name>
+    <url-pattern>/FicheArticle</url-pattern>
+  </servlet-mapping>
 </web-app>

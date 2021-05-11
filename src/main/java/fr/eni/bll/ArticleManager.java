@@ -84,5 +84,38 @@ public class ArticleManager {
 			}
 
 	}
+		
+		public ArticleVendu informationArticle(int id) {
+			ArticleVendu article = null;
+			
+			try {
+				article = dao.selectById(id);
+			} catch (BusinessException e) {
+				e.printStackTrace();
+			}
+			return article;
+		}
+		
+		public List<ArticleVendu> rechercheArticles(String name){
+			List<ArticleVendu> listeArticles = new ArrayList<ArticleVendu>();
+			
+			try {
+				listeArticles = dao.searchName(name);
+			} catch (BusinessException e) {
+				e.printStackTrace();
+			}
+			return listeArticles;
+		}
+		
+		public List<ArticleVendu> rechercheCategorie(String name){
+			List<ArticleVendu> listeArticles = new ArrayList<ArticleVendu>();
+			
+			try {
+				listeArticles = dao.searchCategory(name);
+			} catch (BusinessException e) {
+				e.printStackTrace();
+			}
+			return listeArticles;
+		}
 
 }

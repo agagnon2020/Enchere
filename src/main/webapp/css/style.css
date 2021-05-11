@@ -173,3 +173,15 @@ table {
   text-decoration: none;
   cursor: pointer;
 }
+.article {
+	background: linear-gradient(229deg, #b3b3b3 14%,#ebebeb 73%);
+	background: -moz-linear-gradient(229deg, #b3b3b3 14%,#ebebeb 73%);
+	background: -webkit-linear-gradient(229deg, #b3b3b3 14%,#ebebeb 73%);
+	border-radius: 10px 10px 10px 10px;
+	box-shadow: 7px 8px 12px #e8e8e8;
+  	padding: 20px;
+}
+.tableArticle {
+    margin: 1em auto;
+    width: 100%;
+}
