@@ -47,7 +47,7 @@
 				<td>Fin de l'enchère : </td>
 				<td><input id="Demain" type="text" name="fin_vente" placeholder="jj-mm-aaaa">
 				</td>
-			</tr>
+			</tr> 
 			</table>
 			<table>
 			<tr>

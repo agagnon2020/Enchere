@@ -16,7 +16,7 @@
 			<div class="modal-content">
 				<span class="close_popup">&times;</span>
 				<p>${msgDeconnexion}</p>
-				<p>${erreur}</p>
+				<p>${erreur}</p> 
 			</div>
 		</div>
 	</div>

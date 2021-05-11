@@ -88,6 +88,6 @@ public class VendreServlet extends HttpServlet {
         }
         
         request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp").forward(request,response);
-	}
+	} 
 
 }
