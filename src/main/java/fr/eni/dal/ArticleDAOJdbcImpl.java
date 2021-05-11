@@ -11,15 +11,14 @@ import java.util.List;
 import fr.eni.bll.CategorieManager;
 import fr.eni.bll.UserManager;
 import fr.eni.bo.ArticleVendu;
-import fr.eni.bo.Utilisateur;
 
 public class ArticleDAOJdbcImpl implements ArticleDAO {
 
     private static final String SELECT_ALL = "SELECT * FROM ARTICLES_VENDUS";
     private static final String SELECT_BY_ID = "SELECT * FROM ARTICLES_VENDUS WHERE no_article=?";
-    private static final String INSERT_USER = "insert into ARTICLES_VENDUS(nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, prix_vente, no_utilisateur, no_categorie) values(?,?,?,?,?,?,?,?);";
-    private static final String DELETE_USER = "delete from ARTICLES_VENDUS where no_article=?";
-    private static final String UPDATE_USER = "update ARTICLES_VENDUS set nom_article=?, description=?, date_debut_encheres=?, date_fin_encheres=?, prix_initial=?, prix_vente=?, no_utilisateur=?, no_categorie=? where no_article=?";
+    private static final String INSERT_ARTICLE = "insert into ARTICLES_VENDUS(nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, prix_vente, no_utilisateur, no_categorie) values(?,?,?,?,?,?,?,?);";
+    private static final String DELETE_ARTICLE = "delete from ARTICLES_VENDUS where no_article=?";
+    private static final String UPDATE_ARTICLE = "update ARTICLES_VENDUS set nom_article=?, description=?, date_debut_encheres=?, date_fin_encheres=?, prix_initial=?, prix_vente=?, no_utilisateur=?, no_categorie=? where no_article=?";
      
     @Override
     public ArticleVendu insert(ArticleVendu article) throws BusinessException {
@@ -35,7 +34,7 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
                 PreparedStatement pstmt;
                 ResultSet rs;
                 if (article.getNoArticle() == 0) {
-                    pstmt = cnx.prepareStatement(INSERT_USER, PreparedStatement.RETURN_GENERATED_KEYS);
+                    pstmt = cnx.prepareStatement(INSERT_ARTICLE, PreparedStatement.RETURN_GENERATED_KEYS);
                     pstmt.setString(1, article.getNomArticle());
                     pstmt.setString(2, article.getDescription());
                     pstmt.setDate(3, new Date(article.getDateDebutEncheres().getTime()));
@@ -72,7 +71,7 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
     @Override
     public void deleteArticle(int id) throws BusinessException {
         try (Connection cnx = ConnectionProvider.getConnection()) {
-            PreparedStatement pstmt = cnx.prepareStatement(DELETE_USER);
+            PreparedStatement pstmt = cnx.prepareStatement(DELETE_ARTICLE);
             pstmt.setInt(1, id);
             pstmt.executeUpdate();
         } catch (SQLException e) {
@@ -155,9 +154,8 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
         try (Connection cnx = ConnectionProvider.getConnection()) {
             try {
                 cnx.setAutoCommit(false);
-                PreparedStatement pstmt;
                 if (article.getNoArticle() != 0) {
-                    pstmt = cnx.prepareStatement(UPDATE_USER);
+                	PreparedStatement pstmt = cnx.prepareStatement(UPDATE_ARTICLE);
                     pstmt.setString(1, article.getNomArticle());
                     pstmt.setString(2, article.getDescription());
                     pstmt.setDate(3, new Date(article.getDateDebutEncheres().getTime()));
