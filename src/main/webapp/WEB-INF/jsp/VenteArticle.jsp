@@ -8,7 +8,7 @@
 	</header>
 	<h1>Nouvelle vente</h1>
 
-	<form action="venteArticle" method="post">
+	<form action="vente" method="post">
 		<table>
 			<tr>
 				<td>Article :</td>
@@ -40,20 +40,12 @@
 			</tr>
 			<tr>
 				<td>Début de l'enchère : </td>
-				<td><input id="Aujourdhui" type="date" name="debut_vente">
-				<script>
-				document.getElementById("Aujourdhui").valueAsDate = new Date();
-				</script>
+				<td><input id="Aujourdhui" type="text" name="debut_vente" placeholder="jj-mm-aaaa">
 				</td>
 			</tr>
 			<tr>
 				<td>Fin de l'enchère : </td>
-				<td><input id="Demain" type="date" name="fin_vente">
-				<script>
-				myDate = new Date();
-				myDate.setDate(myDate.getDate() + 1);
-				document.getElementById("Demain").valueAsDate = myDate;
-				</script>
+				<td><input id="Demain" type="text" name="fin_vente" placeholder="jj-mm-aaaa">
 				</td>
 			</tr>
 			</table>
