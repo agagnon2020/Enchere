@@ -127,8 +127,11 @@
 					pageContext.setAttribute("articleVendeur", article.getVendeur().getPseudo());
 					pageContext.setAttribute("identifiantArticle", article.getNoArticle());
 				%>
-				<td>
+				<td><%if(session.getAttribute("utilisateur")!=null){%>
 					<a href="/Enchere/ficheArticle?article=${identifiantArticle}">
+					<%}else{%>
+					<p>Vous devez vous connecter pour voir les details de cet article.</p>
+					<%}%>
 					<div class="article">
 						${articleNom} <br /> <br /> 
 						Prix : ${articlePrix} points <br /> 
