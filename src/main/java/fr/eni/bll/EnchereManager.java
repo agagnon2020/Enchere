@@ -1,6 +1,5 @@
 package fr.eni.bll;
 
-import fr.eni.bo.ArticleVendu;
 import fr.eni.bo.Enchere;
 import fr.eni.dal.BusinessException;
 import fr.eni.dal.DAOFactory;
