@@ -1,5 +1,7 @@
  package fr.eni.dal;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -45,6 +47,8 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
                     pstmt.setInt(6, article.getPrixVente());
                     pstmt.setInt(7, article.getVendeur().getNo_utilisateur());
                     pstmt.setInt(8, article.getCategorie().getNo_categorie());
+                    //FileInputStream fin = new FileInputStream(article.getPhoto());
+                    //pstmt.setBinaryStream(9, fin);
                     pstmt.executeUpdate();
                     rs = pstmt.getGeneratedKeys();
                     if (rs.next()) {
@@ -102,6 +106,7 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
             	article.setVendeur(userM.infosProfil(rs.getInt("no_utilisateur")));
             	CategorieManager cateM = new CategorieManager();
             	article.setCategorie(cateM.informationCategorie(rs.getInt("no_categorie")));
+            	//article.setPhoto(rs.getBinaryStream("photo").toString());
             	listesArticle.add(article);
             }
         } catch (Exception e) {

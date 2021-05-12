@@ -30,34 +30,10 @@ public class ArticleManager {
 	
 	// Enregistrer un nouvel article pour un utilisateur
 	public ArticleVendu insert(ArticleVendu article) {
-		boolean erreur = false;
-		
-		if(!(article.getMiseAPrix()<= 0)) {
-			erreur =true;
-		}
-		
-		Date dateJour = new Date();
-		Date dateDeb = article.getDateDebutEncheres();
-		Date dateFin = article.getDateFinEncheres();
-		
-		dateJour.compareTo(dateDeb); //dateJour < dateDeb, renvoie un négatif
-		dateDeb.compareTo(dateFin); //date2 > date1, renvoie un positif
-
-		if(!dateJour.before(dateDeb) || dateJour.equals(dateDeb)){
-			erreur =true;
-			
-		}
-		if (!dateDeb.after(dateFin) || dateDeb.equals(dateFin)) {
-			erreur =true;
-		}
-		if(erreur == false) {
-			try {
-				return dao.insert(article);
-			} catch (BusinessException e) {
-				e.printStackTrace(); }
-		}else {
-			article.setNoArticle(0);
-			return article;
+		try {
+			return dao.insert(article);
+		} catch (BusinessException e) {
+				e.printStackTrace(); 
 		}
 		return null;
 	}

@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import fr.eni.bll.ArticleManager;
+import fr.eni.bll.CategorieManager;
+import fr.eni.bo.ArticleVendu;
 import fr.eni.bo.Utilisateur;
 
 /**
@@ -86,8 +89,12 @@ public class VendreServlet extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp").forward(request,response);
             System.out.println("Je suis au dernier cas");
         }
-        
-        request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp").forward(request,response);
+        CategorieManager catM = new CategorieManager();
+        ArticleManager artM = new ArticleManager();
+        ArticleVendu article = new ArticleVendu(Integer.valueOf(request.getParameter("prix_article")), Integer.valueOf(request.getParameter("prix_article")), request.getParameter("nom_article"), request.getParameter("desc_article"), "creer", dateDebutVente, dateFinVente, utilisateur, catM.informationCategorie(catM.recupererCategorie(request.getParameter("Categories"))));
+        artM.insert(article);
+        System.out.println(article);
+		request.getRequestDispatcher("/WEB-INF/jsp/Accueil.jsp").forward(request,response);
 	} 
 
 }
