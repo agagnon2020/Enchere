@@ -1,7 +1,7 @@
 package fr.eni.ihm;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
+import java.text.SimpleDateFormat; 
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;

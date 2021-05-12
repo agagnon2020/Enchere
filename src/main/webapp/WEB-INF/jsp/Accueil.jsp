@@ -3,7 +3,7 @@
 <%@page import="fr.eni.bo.ArticleVendu"%>
 <%@page import="java.util.List"%>
 <%@page import="fr.eni.bll.ArticleManager"%>
-<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.text.SimpleDateFormat"%> 
 <%@ page language="java"
 	contentType="text/html; charset=ISO-8859-1; charset=UTF-8"
 	pageEncoding="ISO-8859-1"%>
