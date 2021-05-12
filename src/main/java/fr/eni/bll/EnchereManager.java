@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.eni.bo.Enchere;
+import fr.eni.dal.BusinessException;
 
 public class EnchereManager {
 	
@@ -15,20 +16,26 @@ public class EnchereManager {
 		
 		// Etape 1 : Faire la liste des enchères proposées d'un Article 
 		public List<Enchere> ListeDesEncheres() {
-			List<Enchere> listeArticles = new ArrayList<Enchere>();
+			Enchere enchereGagnante = null;
+			List<Enchere> listeEncheres = new ArrayList<Enchere>();
 			
-			try {
-				listEncheres = dao.selectAll();
-			} catch (BusinessException e) {
-				e.printStackTrace();
-			}
+			// Faire une liste des encheres par le no_article
+			listeEncheres = dao.selectById();
 			
 			// Etape2 : retourner l'enchère la plus élevée
-			return enchereGagnante;
+			for(int i = 0; i < listeEncheres.size(); i++) 
+				for (int k = i + 1; k < listeEncheres.size(); k++)
+				if (listeEncheres.get(i) > listeEncheres.get(k)){
+						System.out.println(enchereGagnante);
+					try {
+						return enchereGagnante;
+					} catch (BusinessException e) {
+						e.printStackTrace();
+					}
+			}
 		}
 		
-		
-		
+			
 		// Enregistrer une nouvelle enchere pour un article
 		public Enchere insert(Enchere enchere) {
 			try {
