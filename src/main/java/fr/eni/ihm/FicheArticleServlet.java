@@ -1,6 +1,7 @@
 package fr.eni.ihm;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -39,12 +40,17 @@ public class FicheArticleServlet extends HttpServlet {
 		int idArticle = Integer.valueOf(request.getParameter("article"));
 		ArticleManager artM = new ArticleManager();
 		ArticleVendu article = artM.informationArticle(idArticle);
-		ServletContext context=getServletContext();  
+		ServletContext context=getServletContext();
+		
+		SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
+		String dateDeb = format1.format(article.getDateDebutEncheres());
+		String dateEnd = format1.format(article.getDateFinEncheres());
+		
 		context.setAttribute("articleNom", article.getNomArticle());
 		context.setAttribute("articleDescription", article.getDescription());
 		context.setAttribute("articlePrix", Integer.toString(article.getMiseAPrix()).concat(" points"));
-		context.setAttribute("articleDateDebut", article.getDateDebutEncheres());
-		context.setAttribute("articleDateFin", article.getDateFinEncheres());
+		context.setAttribute("articleDateDebut", dateDeb);
+		context.setAttribute("articleDateFin", dateEnd);
 		context.setAttribute("articleCategorie", article.getCategorie().getLibelle());
 		context.setAttribute("articleVendeur", article.getVendeur().getPseudo().toString());
 		context.setAttribute("articleRue", article.getVendeur().getRue());

@@ -3,6 +3,7 @@
 <%@page import="fr.eni.bo.ArticleVendu"%>
 <%@page import="java.util.List"%>
 <%@page import="fr.eni.bll.ArticleManager"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java"
 	contentType="text/html; charset=ISO-8859-1; charset=UTF-8"
 	pageEncoding="ISO-8859-1"%>
@@ -123,7 +124,9 @@
 					ArticleVendu article = it.next();
 					pageContext.setAttribute("articleNom", article.getNomArticle());
 					pageContext.setAttribute("articlePrix", article.getMiseAPrix());
-					pageContext.setAttribute("articleFin", article.getDateFinEncheres());
+					SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
+					String dateEnd = format1.format(article.getDateFinEncheres());
+					pageContext.setAttribute("articleFin", dateEnd);
 					pageContext.setAttribute("articleVendeur", article.getVendeur().getPseudo());
 					pageContext.setAttribute("identifiantArticle", article.getNoArticle());
 				%>
