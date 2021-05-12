@@ -1,10 +1,16 @@
 body {
-	margin: 1em 5em 0 5em;
+	margin: 0;
 }
 
 
 h1{
     text-align: center;
+    text-transform : uppercase;
+}
+
+header + form,
+header + table {
+    margin-top: 2em;
 }
 
 .connexion div input[type="submit"] {
@@ -54,7 +60,7 @@ tr.option_co {
     width: 30em;
 }
 
-.filtre input[type="submit"]{
+.filtre input[type="button"]{
 	width: 24em;
 	height: 6em;
 }
@@ -73,6 +79,7 @@ tr.option_co {
 }
 
 input[type="submit"],
+input[type="button"],
 button {
     background-color: white;
     border: 2px solid black;
@@ -80,7 +87,7 @@ button {
     font-weight: bold;
 }
 
-.filtre p{
+.filtre p:not(.article p){
 	font-weight: bold;
 }
 .filtre table td table tr{
@@ -105,12 +112,32 @@ header .logo:link {
     color: black;
 }
 
+header {
+	background-color: lightgray;
+	padding: 1em 0;
+}
+
+header a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+}
+
 .header_table {
     width: 100%;
+    padding: 0 2em;
+	margin: 0;
+	background-color: white;
+    border-radius: 15px;
 }
 
 .header_table td:last-child {
 	text-align: right;
+	padding: 1em 0;
+}
+
+.header_table td:last-child ul{
+	margin: 0;
 }
 
 .header_table ul li {
@@ -173,15 +200,29 @@ table {
   text-decoration: none;
   cursor: pointer;
 }
-.article {
-	background: linear-gradient(229deg, #b3b3b3 14%,#ebebeb 73%);
-	background: -moz-linear-gradient(229deg, #b3b3b3 14%,#ebebeb 73%);
-	background: -webkit-linear-gradient(229deg, #b3b3b3 14%,#ebebeb 73%);
-	border-radius: 10px 10px 10px 10px;
-	box-shadow: 7px 8px 12px #e8e8e8;
-  	padding: 20px;
-}
+
 .tableArticle {
     margin: 1em auto;
     width: 100%;
+}
+
+.tableArticle td {
+    padding: 20px;
+    border: 1px solid black;
+    box-shadow: 7px 8px 12px #e8e8e8;
+    border-radius: 10px 10px 10px 10px;
+    background-color: lightgray;
+    text-align: center;
+}
+
+.tableArticle .article {
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    text-align: left;
+}
+
+.tableArticle a {
+    text-decoration: none;
+    color: black;
 }

@@ -136,10 +136,10 @@
 					<p>Vous devez vous connecter pour voir les details de cet article.</p>
 					<%}%>
 					<div class="article">
-						${articleNom} <br /> <br /> 
-						Prix : ${articlePrix} points <br /> 
-						Fin de l'enchère : ${articleFin} <br /><br /> 
-						Vendeur : ${articleVendeur}
+						<h2>${articleNom}</h2> 
+						<p>Prix : ${articlePrix} points </p> 
+						<p>Fin de l'enchère : ${articleFin}</p>
+						<p>Vendeur : ${articleVendeur}</p>
 					</div>
 					</a>
 				</td>
