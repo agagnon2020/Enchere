@@ -66,5 +66,23 @@
 			</tr>
 		</table>
 	</form>
+	<form action="enchere" method="post">
+	<table>
+			<tr>
+				<td>
+					<fieldset>
+						<legend>Proposition de l'enchère</legend>
+						<p>Date de l'enchère</p>
+						${dateDuJour}
+						<br/>
+						<p>Mise à prix de l'enchere :</p>
+						<input type="number" name="prix_enchere"></input>
+						<br/>
+						<input type="submit" value="Enregistrer">
+					</fieldset>
+				</td>
+			</tr>
+	</table>	
+	</form>
 </body>
 </html>
