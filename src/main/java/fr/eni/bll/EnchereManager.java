@@ -1,8 +1,6 @@
 package fr.eni.bll;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import fr.eni.bo.ArticleVendu;
 import fr.eni.bo.Enchere;
 import fr.eni.dal.BusinessException;
 import fr.eni.dal.DAOFactory;
@@ -16,6 +14,8 @@ public class EnchereManager {
 			this.dao = DAOFactory.getEnchereDAO();
 		}
 		
+		
+		//Retourner la meilleure enchere d'un produit 
 		public Enchere selectBest(int idArticle) {
 			Enchere enchereBest = null;
 			try {
@@ -36,6 +36,28 @@ public class EnchereManager {
 					e.printStackTrace(); 
 			}
 			return null;
+		}
+		
+		// Supprimer un article
+		public void deleteEnchere(int id) {
+
+					try {
+						dao.deleteEnchere(id);
+					} catch (BusinessException e) {
+						e.printStackTrace();
+					}
+
+			}
+		
+		// Modifier un article 
+		public void updateEnchere(Enchere enchere) {
+
+				try {
+					dao.updateEnchere(enchere);
+				} catch (BusinessException e) {
+							e.printStackTrace();
+				}
+
 		}
 		
 
