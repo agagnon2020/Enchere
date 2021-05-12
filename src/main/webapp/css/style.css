@@ -1,11 +1,15 @@
 body {
 	margin: 0;
+	text-align: center;
 }
 
 
 h1{
     text-align: center;
     text-transform : uppercase;
+}
+table td {
+	text-align: left;
 }
 
 header + form,
@@ -147,7 +151,7 @@ header a {
 
 table {
     margin: 1em auto;
-    width:40em;
+    width:30em;
 }
 
 .deco_popup .modal{

@@ -77,11 +77,7 @@
 				${utilisateur.ville}
 			</td>
 		</tr>
-		<tr>
-			<td>
-				<button onclick="window.location.href='modification'">Modifier</button>
-			</td>
-		</tr>
 	</table>
+	<button onclick="window.location.href='modification'">Modifier</button>
 </body>
 </html>
