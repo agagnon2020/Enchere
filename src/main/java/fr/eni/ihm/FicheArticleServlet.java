@@ -56,6 +56,7 @@ public class FicheArticleServlet extends HttpServlet {
 		context.setAttribute("articleRue", article.getVendeur().getRue());
 		context.setAttribute("articleVille", article.getVendeur().getVille());
 		context.setAttribute("articleCodePostal", article.getVendeur().getCode_postal());
+		context.setAttribute("article", article.getNoArticle());
 		request.getRequestDispatcher("/WEB-INF/jsp/FicheArticle.jsp").forward(request,response);	
 	}
 

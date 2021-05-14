@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import fr.eni.bll.ArticleManager;
 import fr.eni.bll.EnchereManager;
 import fr.eni.bll.UserManager;
 import fr.eni.bo.ArticleVendu;
@@ -40,7 +41,8 @@ public class EnchereServlet extends HttpServlet {
 		EnchereManager mger = new EnchereManager();
 		HttpSession session=request.getSession();
 		Utilisateur utilisateur = (Utilisateur)session.getAttribute("utilisateur");
-		ArticleVendu article = (ArticleVendu)session.getAttribute("article");
+		ArticleManager artM = new ArticleManager();
+		ArticleVendu article = artM.informationArticle(Integer.parseInt(request.getParameter("article")));
 		String prixEnchere = request.getParameter("prix_enchere");
 		int montantEnchere;
 		

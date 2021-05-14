@@ -66,7 +66,7 @@
 			</tr>
 		</table>
 	</form>
-	<form action="enchere" method="post">
+	<form action="enchere?article=${article}" method="post">
 	<table>
 			<tr>
 				<td>
